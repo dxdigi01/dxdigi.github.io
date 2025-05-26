@@ -1,10 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>DXDIGI</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DxDigi - Teknoloji Sitesi</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdfdfd;
+            color: #333;
+        }
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #001f3f;
+            padding: 10px 30px;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 1px;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #dcdcdc;
+        }
+        section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            max-width: 100%;
+            text-align: center;
+        }
+        section h2 {
+            color: #001f3f;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        section p {
+            line-height: 1.6;
+            color: #555;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        header {
+            height: 100vh;
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #001f3f;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+        header p {
+            font-size: 1.4em;
+            color: #ccc;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #001f3f;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #003366;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #001f3f;
+            color: #fff;
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+        }
+        /* Dil seçici kutusu için basit stil */
+        #languageSelector {
+            margin-left: 20px;
+            padding: 5px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hoş Geldiniz DXDIGI</h1>
-    <p>ANASAYFA.</p>
-</body>
-</html>
+
+<nav>
+    <div class="logo">DxDigi</div>
+    <ul>
+        <li><a href="#about" id="menuAbout">Hakkımızda</a></li>
+        <li><a href="#services" id="menuServices">Hizmetler</a></li>
+        <li><a href="#contact" id="menuContact">İletişim</a></li>
+    </ul>
+    <select id="languageSelector" aria-label="Dil seçimi">
+        <option value="tr">Türkçe</option>
+        <option value="en">English</option>
+        <option value="pt">Português</option>
+    </select>
+</nav>
+
+<header>
+    <h1>DxDigi</h1>
+    <p id="headerSlogan">Teknoloji ve Dijital Çözümlerde Güven</p>
+</header>
+
+<section id="about">
+    <h2 id="aboutTitle">Hakkımızda</h2>
+    <p id="aboutText1">DxDigi, teknoloji alanında yenilikçi çözümler sunmayı hedefleyen bir şirkettir. Modern dijital altyapılar, yazılım geliştirme, yapay zeka ve veri analitiği gibi alanlarda öncüyüz.</p>
+    <p id="aboutText2">Müşteri memnuniyetini ön planda tutarak, teknolojiyi daha ulaşılabilir ve verimli hale getiriyoruz.</p>
+    <a href="#" class="button" id="aboutButton">Daha Fazla Bilgi</a>
+</section>
+
+<section id="services">
+    <h2 id="servicesTitle">Hizmetlerimiz</h2>
+    <p id="servicesText1">DxDigi olarak sunduğumuz hizmetler şunlardır:</p>
+    <p id="servicesText2">Yapay Zeka, Bulut Bilişim, Yazılım Geliştirme, IoT ve Dijital Dönüşüm Danışmanlığı alanlarında sizlere destek veriyoruz.</p>
+    <a href="#" class="button" id="servicesButton">Hizmetlerimiz</a>
+</section>
+
+<section id="contact">
+    <h2 id="contactTitle">İletişim</h2>
+    <p id="contactText1">Adres: İstanbul Teknopark, Türkiye</p>
+    <p id="contactText2">Telefon: +90 212 123 4567</p>
+    <p id="contactText3">E-posta: info@dxdigi.com</p>
+    <a href="mailto:info@dxdigi.com" class="button" id="contactButton">E-Posta Gönder</a>
+</section>
+
+<footer>
+    &copy; 2025 DxDigi - Tüm Hakları Saklıdır.
+</footer>
+
+<script>
+const translations = {
+    "tr": {
+        "menu": {
+            "about": "Hakkımızda",
+            "services": "Hizmetler",
+            "contact": "İletişim"
+        },
+        "headerSlogan": "Teknoloji ve Dijital Çözümlerde Güven",
+        "aboutTitle": "Hakkımızda",
+        "aboutText1": "DxDigi, teknoloji alanında yenilikçi çözümler sunmayı hedefleyen bir şirkettir. Modern dijital altyapılar, yazılım geliştirme, yapay zeka ve veri analitiği gibi alanlarda öncüyüz.",
+        "aboutText2": "Müşteri memnuniyetini ön planda tutarak, teknolojiyi daha ulaşılabilir ve verimli hale getiriyoruz.",
+        "aboutButton": "Daha Fazla Bilgi",
+        "servicesTitle": "Hizmetlerimiz",
+        "servicesText1": "DxDigi olarak sunduğumuz hizmetler şunlardır:",
+        "servicesText2": "Yapay Zeka, Bulut Bilişim, Yazılım Geliştirme, IoT ve Dijital Dönüşüm Danışmanlığı alanlarında sizlere destek veriyoruz.",
+        "servicesButton": "Hizmetlerimiz",
+        "contactTitle": "İletişim",
+        "contactText1": "Adres: İstanbul Teknopark, Türkiye",
+        "contactText2": "Telefon: +90 212 123 4567",
+        "contactText3": "E-posta: info@dxdigi.com",
+        "contactButton": "E-Posta Gönder"
+    },
+    "en": {
+        "menu": {
+            "about": "About Us",
+            "services": "Services",
+            "contact": "Contact"
+        },
+        "headerSlogan": "Trust in Technology and Digital Solutions",
+        "aboutTitle": "About Us",
+        "aboutText1": "DxDigi is a company aiming to provide innovative solutions in the field of technology. We lead in modern digital infrastructures, software development, artificial intelligence, and data analytics.",
+        "aboutText2": "We prioritize customer satisfaction and make technology more accessible and efficient.",
+        "aboutButton": "Learn More",
+        "servicesTitle": "Our Services",
+        "servicesText1": "Our offered services include:",
+        "servicesText2": "We support you in Artificial Intelligence, Cloud Computing, Software Development, IoT, and Digital Transformation Consultancy.",
+"servicesButton": "Our Services",
+"contactTitle": "Contact",
+"contactText1": "Address: Istanbul Technopark, Turkey",
+"contactText2": "Phone: +90 212 123 4567",
+"contactText3": "Email: info@dxdigi.com",
+"contactButton": "Send Email"
+},
+"pt": {
+"menu": {
+"about": "Sobre Nós",
+"services": "Serviços",
+"contact": "Contato"
+},
+"headerSlogan": "Confiança em Tecnologia e Soluções Digitais",
+"aboutTitle": "Sobre Nós",
+"aboutText1": "DxDigi é uma empresa que visa oferecer soluções inovadoras na área de tecnologia. Lideramos em infraestruturas digitais modernas, desenvolvimento de software, inteligência artificial e análise de dados.",
+"aboutText2": "Priorizamos a satisfação do cliente, tornando a tecnologia mais acessível e eficiente.",
+"aboutButton": "Saiba Mais",
+"servicesTitle": "Nossos Serviços",
+"servicesText1": "Os serviços que oferecemos são:",
+"servicesText2": "Apoiamos você em Inteligência Artificial, Computação em Nuvem, Desenvolvimento de Software, IoT e Consultoria em Transformação Digital.",
+"servicesButton": "Nossos Serviços",
+"contactTitle": "Contato",
+"contactText1": "Endereço: Istanbul Technopark, Turquia",
+"contactText2": "Telefone: +90 212 123 4567",
+"contactText3": "Email: info@dxdigi.com",
+"contactButton": "Enviar Email"
+}
+};
+
+function updateLanguage(lang) {
+// Menü
+document.getElementById("menuAbout").textContent = translations[lang].menu.about;
+document.getElementById("menuServices").textContent = translations[lang].menu.services;
+document.getElementById("menuContact").textContent = translations[lang].menu.contact;
+
+// Header slogan
+document.getElementById("headerSlogan").textContent = translations[lang].headerSlogan;
+
+// About section
+document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
+document.getElementById("aboutText1").textContent = translations[lang].aboutText1;
+document.getElementById("aboutText2").textContent = translations[lang].aboutText2;
+document.getElementById("aboutButton").textContent = translations[lang].aboutButton;
+
+// Services section
+document.getElementById("servicesTitle").textContent = translations[lang].servicesTitle;
+document.getElementById("servicesText1").textContent = translations[lang].servicesText1;
+document.getElementById("servicesText2").textContent = translations[lang].servicesText2;
+document.getElementById("servicesButton").textContent = translations[lang].servicesButton;
+
+// Contact section
+document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
+document.getElementById("contactText1").textContent = translations[lang].contactText1;
+document.getElementById("contactText2").textContent = translations[lang].contactText2;
+document.getElementById("contactText3").textContent = translations[lang].contactText3;
+document.getElementById("contactButton").textContent = translations[lang].contactButton;
+
+}
+
+// Sayfa yüklendiğinde varsayılan dili uygula
+document.addEventListener("DOMContentLoaded", () => {
+const selector = document.getElementById("languageSelector");
+updateLanguage(selector.value);
+
+// Dil seçimi değiştiğinde içeriği güncelle
+selector.addEventListener("change", () => {
+    updateLanguage(selector.value);
+});
+
+});
+</script>
+
+</body> </html>
