@@ -1,247 +1,44 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DxDigi - Yaşam Teknolojileri</title>
-    <style>
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fefefe;
-            color: #333;
-        }
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #002b36;
-            padding: 10px 30px;
-            z-index: 1000;
-        }
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #fff;
-            font-family: 'Trebuchet MS', sans-serif;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #ffffff;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        nav ul li a:hover {
-            color: #dcdcdc;
-        }
-        section {
-            padding: 100px 20px;
-            text-align: center;
-        }
-        header {
-            height: 100vh;
-            background: linear-gradient(to right, #003049, #001f3f);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2em;
-            max-width: 600px;
-            margin-top: 20px;
-            color: #ccc;
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0074D9;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .apps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .app-card {
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            padding: 20px;
-            max-width: 300px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .app-card h3 {
-            color: #001f3f;
-        }
-        footer {
-            background-color: #002b36;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9em;
-        }
-        #languageSelector {
-            margin-left: 20px;
-            padding: 5px;
-            font-size: 1em;
-            border-radius: 5px;
-            border: none;
-        }
-    </style>
-</head>
-<body>
-<nav>
-    <div class="logo">DxDigi</div>
-    <ul>
-        <li><a href="#apps" id="menuApps">Uygulamalar</a></li>
-        <li><a href="#about" id="menuAbout">Hakkımızda</a></li>
-        <li><a href="#contact" id="menuContact">İletişim</a></li>
-    </ul>
-    <select id="languageSelector" aria-label="Dil Seçimi">
-        <option value="tr">Türkçe</option>
-        <option value="en">English</option>
-        <option value="pt">Português</option>
-    </select>
-</nav>
-
-<header>
-    <h1 id="mainSlogan">DxDigi Yaşam Teknolojileri</h1>
-    <p id="headerSlogan">İnsana, doğaya ve yaşama dokunan teknolojiler geliştiriyoruz.</p>
-</header>
-
-
-<section id="apps">
-  <h2 id="appsTitle">Uygulamalar</h2>
-  <div class="apps">
-    <div class="app-card">
-      <h3>Pinstore</h3>
-      <p id="pinstoreText">Gezdiğiniz mekanları, yerleri Pinstore ile pinleyerek pininize ait aksiyonlar oluşturun, çevrenizle paylaşın.</p>
-      <p id="pinstoreTextEn" style="display: none;">Pin the places you've visited with Pinstore, create actions linked to your pins, and share them with your community.</p>
-      <p id="pinstoreTextPt" style="display: none;">Com o Pinstore, marque os locais que você visitou, crie ações para seus pins e compartilhe com sua comunidade.</p>
-      <a class="button" href="#">Google Play</a>
-    </div>
-    <div class="app-card">
-      <h3>Rotafit</h3>
-      <p id="rotafitText">Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak haritada oluşturun. Anlık konum bilginizle oluşan rotanız üzerinde çektiğiniz video ve fotoğrafları pinleyin, etrafınızla paylaşın.</p>
-      <p id="rotafitTextEn" style="display: none;">Create your running, walking and cycling routes instantly on the map. Pin photos and videos you take along your live-tracked route and share with others.</p>
-      <p id="rotafitTextPt" style="display: none;">Crie suas rotas de corrida, caminhada e ciclismo no mapa em tempo real. Marque fotos e vídeos tirados ao longo do trajeto e compartilhe com outros.</p>
-      <a class="button" href="#">Google Play</a>
-    </div>
-  </div>
-</section>
-
-
-<section id="about">
-    <h2 id="aboutTitle">Hakkımızda</h2>
-    <p id="aboutText">DxDigi, dijital dünya ile gerçek hayat arasında köprü kuran yaşam teknolojileri geliştirir. Teknoloji bizim için bir amaç değil, yaşama katkı sağlayan bir aracıdır.</p>
-</section>
-
-<section id="contact">
-    <h2 id="contactTitle">İletişim</h2>
-    <p id="contactText">E-posta: info@dxdigi.com</p>
-    <a class="button" href="mailto:info@dxdigi.com" id="contactButton">E-posta Gönder</a>
-</section>
-
-<footer>
-    &copy; 2025 DxDigi - Tüm Hakları Saklıdır.
-</footer>
-
 <script>
-const translations = {
-    "tr": {
-        "mainSlogan": "DxDigi Yaşam Teknolojileri",
-        "menuApps": "Uygulamalar",
-        "menuAbout": "Hakkımızda",
-        "menuContact": "İletişim",
-        "headerSlogan": "İnsana, doğaya ve yaşama dokunan teknolojiler geliştiriyoruz.",
-        "appsTitle": "Uygulamalar",
-        "aboutTitle": "Hakkımızda",
-        "aboutText": "DxDigi, dijital dünya ile gerçek hayat arasında köprü kuran yaşam teknolojileri geliştirir. Teknoloji bizim için bir amaç değil, yaşama katkı sağlayan bir aracıdır.",
-        "contactTitle": "İletişim",
-        "contactText": "E-posta: info@dxdigi.com",
-        "contactButton": "E-posta Gönder"
-    },
-    "en": {
-        "mainSlogan": "DxDigi Life Technologies",
-        "menuApps": "Apps",
-        "menuAbout": "About Us",
-        "menuContact": "Contact",
-        "headerSlogan": "We build technologies that touch life, nature and people.",
-        "appsTitle": "Applications",
-        "aboutTitle": "About Us",
-        "aboutText": "DxDigi develops life technologies that bridge the digital world with real life. For us, technology is not the goal but the tool that enhances life.",
-        "contactTitle": "Contact",
-        "contactText": "Email: info@dxdigi.com",
-        "contactButton": "Send Email"
-    },
-    "pt": {
-        "mainSlogan": "DxDigi Tecnologias de Vida",
-        "menuApps": "Aplicativos",
-        "menuAbout": "Sobre Nós",
-        "menuContact": "Contato",
-        "headerSlogan": "Criamos tecnologias que tocam a vida, a natureza e as pessoas.",
-        "appsTitle": "Aplicativos",
-        "aboutTitle": "Sobre Nós",
-        "aboutText": "A DxDigi desenvolve tecnologias que conectam o mundo digital à vida real. Para nós, a tecnologia é uma ferramenta que melhora a vida.",
-        "contactTitle": "Contato",
-        "contactText": "Email: info@dxdigi.com",
-        "contactButton": "Enviar Email"
-    }
-};
+  function updateLanguage(lang) {
+    const elements = document.querySelectorAll('[data-lang]');
+    elements.forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+    });
+  }
 
-function updateLanguage(lang) {
-    document.getElementById("mainSlogan").textContent = translations[lang].mainSlogan;
-    document.getElementById("menuApps").textContent = translations[lang].menuApps;
-    document.getElementById("menuAbout").textContent = translations[lang].menuAbout;
-    document.getElementById("menuContact").textContent = translations[lang].menuContact;
-    document.getElementById("headerSlogan").textContent = translations[lang].headerSlogan;
-    document.getElementById("appsTitle").textContent = translations[lang].appsTitle;
-    document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
-    document.getElementById("aboutText").textContent = translations[lang].aboutText;
-    document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
-    document.getElementById("contactText").textContent = translations[lang].contactText;
-    document.getElementById("contactButton").textContent = translations[lang].contactButton;
-
-    // App descriptions toggle
-    document.getElementById("pinstoreText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("pinstoreTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("pinstoreTextPt").style.display = lang === "pt" ? "block" : "none";
-
-    document.getElementById("rotafitText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("rotafitTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("rotafitTextPt").style.display = lang === "pt" ? "block" : "none";
-
-    
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const selector = document.getElementById("languageSelector");
-    updateLanguage(selector.value);
-    selector.addEventListener("change", () => updateLanguage(selector.value));
-});
+  document.addEventListener('DOMContentLoaded', () => {
+    updateLanguage('tr'); // varsayılan Türkçe
+  });
 </script>
-</body>
-</html>
+
+<div class="flex justify-end p-4">
+  <select onchange="updateLanguage(this.value)" class="border rounded p-1">
+    <option value="tr">🇹🇷 Türkçe</option>
+    <option value="en">🇺🇸 English</option>
+    <option value="pt">🇧🇷 Português</option>
+  </select>
+</div>
+
+<h1 class="text-3xl font-bold mb-2 text-center">
+  <span data-lang="tr">DxDigi Yaşam Teknolojileri</span>
+  <span data-lang="en" style="display:none">DxDigi Life Technologies</span>
+  <span data-lang="pt" style="display:none">DxDigi Tecnologias de Vida</span>
+</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-xl font-semibold mb-2">Pinstore</h2>
+    <p data-lang="tr">Gezdiğiniz mekanları, yerleri Pinstore ile pinleyerek pininize ait aksiyonlar oluşturun, çevrenizle paylaşın.</p>
+    <p data-lang="en" style="display:none">Pin the places you visit with Pinstore, create actions related to your pins, and share them with your surroundings.</p>
+    <p data-lang="pt" style="display:none">Fixe os lugares que você visita com o Pinstore, crie ações relacionadas aos seus pinos e compartilhe com sua comunidade.</p>
+    <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Google Play</a>
+  </div>
+
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-xl font-semibold mb-2">Rotafit</h2>
+    <p data-lang="tr">Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak haritada oluşturun. Anlık konum bilginizle oluşan rotanız üzerinde çektiğiniz video ve fotoğrafları pinleyin, etrafınızla paylaşın.</p>
+    <p data-lang="en" style="display:none">Create your running, walking, and cycling routes in real time on the map. Pin videos and photos taken along your route based on your location and share them.</p>
+    <p data-lang="pt" style="display:none">Crie suas rotas de corrida, caminhada e ciclismo em tempo real no mapa. Fixe vídeos e fotos tiradas ao longo da rota com base na sua localização e compartilhe.</p>
+    <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Google Play</a>
+  </div>
+</div>
