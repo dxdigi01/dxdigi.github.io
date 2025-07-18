@@ -1,44 +1,111 @@
-<script>
-  function updateLanguage(lang) {
-    const elements = document.querySelectorAll('[data-lang]');
-    elements.forEach(el => {
-      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
-    });
-  }
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DxDigi Yaşam Teknolojileri</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header, section {
+      padding: 20px;
+      text-align: center;
+    }
+    .language-selector {
+      margin: 10px 0;
+    }
+    .language-selector button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .app-card {
+      background-color: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+    }
+    .app-card h2 {
+      margin-top: 0;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 5px 0 5px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="slogan">DxDigi Yaşam Teknolojileri</h1>
+    <div class="language-selector">
+      <button onclick="updateLanguage('tr')">Türkçe</button>
+      <button onclick="updateLanguage('en')">English</button>
+      <button onclick="updateLanguage('pt')">Português</button>
+    </div>
+  </header>
 
-  document.addEventListener('DOMContentLoaded', () => {
-    updateLanguage('tr'); // varsayılan Türkçe
-  });
-</script>
+  <section id="apps">
+    <h2 id="appsTitle">Uygulamalarımız</h2>
 
-<div class="flex justify-end p-4">
-  <select onchange="updateLanguage(this.value)" class="border rounded p-1">
-    <option value="tr">🇹🇷 Türkçe</option>
-    <option value="en">🇺🇸 English</option>
-    <option value="pt">🇧🇷 Português</option>
-  </select>
-</div>
+    <div class="app-card">
+      <h2>Pinstore</h2>
+      <p id="pinstoreDesc">Pinstore, fotoğraf ve notlarla konum sabitlemenizi sağlar.</p>
+      <a class="button" href="javascript:void(0);">Google Play</a>
+      <a class="button" href="javascript:void(0);">App Store</a>
+    </div>
 
-<h1 class="text-3xl font-bold mb-2 text-center">
-  <span data-lang="tr">DxDigi Yaşam Teknolojileri</span>
-  <span data-lang="en" style="display:none">DxDigi Life Technologies</span>
-  <span data-lang="pt" style="display:none">DxDigi Tecnologias de Vida</span>
-</h1>
+    <div class="app-card">
+      <h2>Rotafit</h2>
+      <p id="rotafitDesc">Rotafit, yürüyüş ve koşu rotalarınızı takip eder, mesafe, süre ve kalori bilgilerini kaydeder.</p>
+      <a class="button" href="javascript:void(0);">Google Play</a>
+      <a class="button" href="javascript:void(0);">App Store</a>
+    </div>
+  </section>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-  <div class="bg-white rounded-lg shadow-md p-6">
-    <h2 class="text-xl font-semibold mb-2">Pinstore</h2>
-    <p data-lang="tr">Gezdiğiniz mekanları, yerleri Pinstore ile pinleyerek pininize ait aksiyonlar oluşturun, çevrenizle paylaşın.</p>
-    <p data-lang="en" style="display:none">Pin the places you visit with Pinstore, create actions related to your pins, and share them with your surroundings.</p>
-    <p data-lang="pt" style="display:none">Fixe os lugares que você visita com o Pinstore, crie ações relacionadas aos seus pinos e compartilhe com sua comunidade.</p>
-    <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Google Play</a>
-  </div>
+  <script>
+    const translations = {
+      tr: {
+        slogan: "DxDigi Yaşam Teknolojileri",
+        appsTitle: "Uygulamalarımız",
+        pinstoreDesc: "Pinstore, fotoğraf ve notlarla konum sabitlemenizi sağlar.",
+        rotafitDesc: "Rotafit, yürüyüş ve koşu rotalarınızı takip eder, mesafe, süre ve kalori bilgilerini kaydeder."
+      },
+      en: {
+        slogan: "DxDigi Life Technologies",
+        appsTitle: "Our Applications",
+        pinstoreDesc: "Pinstore lets you pin locations with photos and notes.",
+        rotafitDesc: "Rotafit tracks your walking and running routes, saving distance, duration, and calories burned."
+      },
+      pt: {
+        slogan: "Tecnologias de Vida DxDigi",
+        appsTitle: "Nossos Aplicativos",
+        pinstoreDesc: "O Pinstore permite fixar locais com fotos e notas.",
+        rotafitDesc: "O Rotafit rastreia suas rotas de caminhada e corrida, registrando distância, duração e calorias queimadas."
+      }
+    };
 
-  <div class="bg-white rounded-lg shadow-md p-6">
-    <h2 class="text-xl font-semibold mb-2">Rotafit</h2>
-    <p data-lang="tr">Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak haritada oluşturun. Anlık konum bilginizle oluşan rotanız üzerinde çektiğiniz video ve fotoğrafları pinleyin, etrafınızla paylaşın.</p>
-    <p data-lang="en" style="display:none">Create your running, walking, and cycling routes in real time on the map. Pin videos and photos taken along your route based on your location and share them.</p>
-    <p data-lang="pt" style="display:none">Crie suas rotas de corrida, caminhada e ciclismo em tempo real no mapa. Fixe vídeos e fotos tiradas ao longo da rota com base na sua localização e compartilhe.</p>
-    <a href="#" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded">Google Play</a>
-  </div>
-</div>
+    function updateLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("slogan").textContent = t.slogan;
+      document.getElementById("appsTitle").textContent = t.appsTitle;
+      document.getElementById("pinstoreDesc").textContent = t.pinstoreDesc;
+      document.getElementById("rotafitDesc").textContent = t.rotafitDesc;
+
+      // Update the lang attribute of <html> for accessibility
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
