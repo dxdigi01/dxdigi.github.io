@@ -133,20 +133,25 @@
 </header>
 
 <section id="apps">
-    <h2 id="appsTitle">Uygulamalar</h2>
-    <div class="apps">
-        <div class="app-card">
-            <h3>Pinstore</h3>
-            <p>Gezdiginiz mekanlari, yerleri pinstore ile pinleyerek pininize ait aksiyonlar olusturun cevrenizle paylasin.</p>
-            <a class="button" href="#">Google Play</a>
-        </div>
-        <div class="app-card">
-            <h3>Rotafit</h3>
-            <p>Koşu, yürüyüş ve bisiklet rotalarınızı anlik olarak haritada olusturun.Anlik konum bilginizle olusan rotaniz uzerinde cektiginiz video ve fotograflari pinleyin etrafinizla paylasin.</p>
-            <a class="button" href="#">Google Play</a>
-        </div>
+  <h2 id="appsTitle">Uygulamalar</h2>
+  <div class="apps">
+    <div class="app-card">
+      <h3>Pinstore</h3>
+      <p id="pinstoreText">Gezdiğiniz mekanları, yerleri Pinstore ile pinleyerek pininize ait aksiyonlar oluşturun, çevrenizle paylaşın.</p>
+      <p id="pinstoreTextEn" style="display: none;">Pin the places you've visited with Pinstore, create actions linked to your pins, and share them with your community.</p>
+      <p id="pinstoreTextPt" style="display: none;">Com o Pinstore, marque os locais que você visitou, crie ações para seus pins e compartilhe com sua comunidade.</p>
+      <a class="button" href="#">Google Play</a>
     </div>
+    <div class="app-card">
+      <h3>Rotafit</h3>
+      <p id="rotafitText">Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak haritada oluşturun. Anlık konum bilginizle oluşan rotanız üzerinde çektiğiniz video ve fotoğrafları pinleyin, etrafınızla paylaşın.</p>
+      <p id="rotafitTextEn" style="display: none;">Create your running, walking and cycling routes instantly on the map. Pin photos and videos you take along your live-tracked route and share with others.</p>
+      <p id="rotafitTextPt" style="display: none;">Crie suas rotas de corrida, caminhada e ciclismo no mapa em tempo real. Marque fotos e vídeos tirados ao longo do trajeto e compartilhe com outros.</p>
+      <a class="button" href="#">Google Play</a>
+    </div>
+  </div>
 </section>
+
 
 <section id="about">
     <h2 id="aboutTitle">Hakkımızda</h2>
@@ -214,6 +219,16 @@ function updateLanguage(lang) {
     document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
     document.getElementById("contactText").textContent = translations[lang].contactText;
     document.getElementById("contactButton").textContent = translations[lang].contactButton;
+
+    // App descriptions toggle
+    document.getElementById("pinstoreText").style.display = lang === "tr" ? "block" : "none";
+    document.getElementById("pinstoreTextEn").style.display = lang === "en" ? "block" : "none";
+    document.getElementById("pinstoreTextPt").style.display = lang === "pt" ? "block" : "none";
+
+    document.getElementById("rotafitText").style.display = lang === "tr" ? "block" : "none";
+    document.getElementById("rotafitTextEn").style.display = lang === "en" ? "block" : "none";
+    document.getElementById("rotafitTextPt").style.display = lang === "pt" ? "block" : "none";
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
