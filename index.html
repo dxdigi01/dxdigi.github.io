@@ -128,9 +128,10 @@
 </nav>
 
 <header>
-    <h1>DxDigi Yaşam Teknolojileri</h1>
+    <h1 id="mainSlogan">DxDigi Yaşam Teknolojileri</h1>
     <p id="headerSlogan">İnsana, doğaya ve yaşama dokunan teknolojiler geliştiriyoruz.</p>
 </header>
+
 
 <section id="apps">
   <h2 id="appsTitle">Uygulamalar</h2>
@@ -171,6 +172,7 @@
 <script>
 const translations = {
     "tr": {
+        "mainSlogan": "DxDigi Yaşam Teknolojileri",
         "menuApps": "Uygulamalar",
         "menuAbout": "Hakkımızda",
         "menuContact": "İletişim",
@@ -183,6 +185,7 @@ const translations = {
         "contactButton": "E-posta Gönder"
     },
     "en": {
+        "mainSlogan": "DxDigi Life Technologies",
         "menuApps": "Apps",
         "menuAbout": "About Us",
         "menuContact": "Contact",
@@ -195,6 +198,7 @@ const translations = {
         "contactButton": "Send Email"
     },
     "pt": {
+        "mainSlogan": "DxDigi Tecnologias de Vida",
         "menuApps": "Aplicativos",
         "menuAbout": "Sobre Nós",
         "menuContact": "Contato",
@@ -209,6 +213,7 @@ const translations = {
 };
 
 function updateLanguage(lang) {
+    document.getElementById("mainSlogan").textContent = translations[lang].mainSlogan;
     document.getElementById("menuApps").textContent = translations[lang].menuApps;
     document.getElementById("menuAbout").textContent = translations[lang].menuAbout;
     document.getElementById("menuContact").textContent = translations[lang].menuContact;
@@ -229,6 +234,7 @@ function updateLanguage(lang) {
     document.getElementById("rotafitTextEn").style.display = lang === "en" ? "block" : "none";
     document.getElementById("rotafitTextPt").style.display = lang === "pt" ? "block" : "none";
 
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
