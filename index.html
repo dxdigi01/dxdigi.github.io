@@ -167,6 +167,13 @@
       <p id="petfitTextPt" style="display: none;">Registre as atividades diárias do seu pet e compartilhe com seu veterinário. Adicione as informações do veterinário e configure lembretes. Acompanhe dados de saúde e desempenho em tempo real, tire fotos e grave vídeos. Marque e compartilhe as fotos e vídeos do seu pet com quem você quiser.</p>
       <a class="button" href="https://play.google.com/store/apps/details?id=com.dxdigi.petfit">Google Play</a>
     </div>
+     <div class="app-card">
+      <h3>Olhos</h3>
+      <p id="olhosText">Olhos, göz yorgunluğunu azaltmak için ekranınıza nazik bir renk filtresi uygular. Gün doğumu/gün batımı saatlerine göre otomatik ayarlanır veya manuel kontrol edebilirsiniz. </p>
+      <p id="olhosTextEn" style="display: none;">Olhos applies a gentle color filter to your screen to reduce eye strain. It automatically adjusts based on sunrise/sunset times, or you can control it manually.</p>
+      <p id="olhosTextPt" style="display: none;">O Olhos aplica um filtro de cor suave na sua tela para reduzir o cansaço visual. Ele se ajusta automaticamente de acordo com os horários do nascer e do pôr do sol, ou você pode controlá-lo manualmente.</p>
+      <a class="button" href="https://play.google.com/store/apps/details?id=com.dxdigi.olhos">Google Play</a>
+    </div>
   </div>
 </section>
 
@@ -254,6 +261,10 @@ function updateLanguage(lang) {
     document.getElementById("petfitText").style.display = lang === "tr" ? "block" : "none";
     document.getElementById("petfitTextEn").style.display = lang === "en" ? "block" : "none";
     document.getElementById("petfitTextPt").style.display = lang === "pt" ? "block" : "none";
+
+    document.getElementById("olhosText").style.display = lang === "tr" ? "block" : "none";
+    document.getElementById("olhosTextEn").style.display = lang === "en" ? "block" : "none";
+    document.getElementById("olhosTextPt").style.display = lang === "pt" ? "block" : "none";
 
     
 }
