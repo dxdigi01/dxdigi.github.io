@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
@@ -20,23 +20,23 @@
             display: flex;
             align-items: center;
             background-color: #002b36;
-            padding: 10px 30px;
+            padding: 10px 20px;
             z-index: 1000;
-            gap: 20px; /* logo, dil seçici ve menü arasında boşluk */  
-            }
-       .logo {
+            gap: 10px; /* logo ile diğerleri arasında boşluk */
+        }
+        .logo {
             font-size: 2em;
             font-weight: bold;
             color: #fff;
             font-family: 'Trebuchet MS', sans-serif;
         }
         nav ul {
-           margin-left: auto; /* menüyü sağa iter */
-           list-style: none;
-           display: flex;
-           gap: 20px;
-           margin: 0;
-           padding: 0;
+            margin-left: auto; /* menüyü sağa iter */
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
         }
         
         nav ul li a {
@@ -106,48 +106,52 @@
             padding: 20px;
             font-size: 0.9em;
         }
+
+        /* Dil seçici logoya daha yakın */
         #languageSelector {
-            margin-left: 20px;
+            margin-left: 10px; 
             padding: 5px;
             font-size: 1em;
             border-radius: 5px;
             border: none;
         }
 
-      /* Hamburger butonu */
-     .menu-toggle {
-        display: none;
-        font-size: 2em;
-        color: #fff;
-        cursor: pointer;
-        padding: 5px 10px;
-    }
+        /* Hamburger butonu */
+        .menu-toggle {
+            display: none;
+            font-size: 2em;
+            color: #fff;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
 
+        /* Küçük ekranlarda menüyü gizle */
+        @media (max-width: 768px) {
+            nav {
+                flex-wrap: wrap;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #002b36;
+                padding: 10px 0;
+            }
+            nav ul.show {
+                display: flex;
+            }
 
-     /* Küçük ekranlarda menüyü gizle */
-    @media (max-width: 768px) {
-    nav {
-        flex-wrap: wrap;
-    }
-    nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #002b36;
-        padding: 10px 0;
-    }
-    nav ul.show {
-        display: flex;
-    }
-    .menu-toggle {
-        display: block;
-        margin-left: auto;
-    }
-    #languageSelector {
-        margin-left: auto;
-    }
-}
-
+            /* Toggle ve dil seçici aynı hizada, ekran içinde kalır */
+            .menu-toggle {
+                display: block;
+                order: 3; /* hep en sağda */
+                margin-left: 10px;
+            }
+            #languageSelector {
+                order: 2; /* toggle’dan hemen önce */
+                margin-left: auto;
+            }
+        }
     </style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY4CRKKB3C"></script>
@@ -170,7 +174,7 @@
         <option value="pt">Português</option>
     </select>
   
-     <!-- Hamburger -->
+    <!-- Hamburger -->
     <div class="menu-toggle" id="menuToggle">☰</div>
 
     <ul id="menuList">
