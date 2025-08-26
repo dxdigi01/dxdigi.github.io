@@ -113,6 +113,39 @@
             border-radius: 5px;
             border: none;
         }
+
+      /* Hamburger butonu */
+     .menu-toggle {
+          display: none;
+          font-size: 1.8em;
+          color: white;
+          cursor: pointer;
+     }
+
+     /* Küçük ekranlarda menüyü gizle */
+    @media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #002b36;
+        padding: 10px 0;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+    #languageSelector {
+        margin-left: auto;
+    }
+}
+
     </style>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY4CRKKB3C"></script>
@@ -134,6 +167,10 @@
         <option value="en">English</option>
         <option value="pt">Português</option>
     </select>
+  
+     <!-- Hamburger -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
     <ul>
         <li><a href="#apps" id="menuApps">Uygulamalar</a></li>
         <li><a href="#about" id="menuAbout">Hakkımızda</a></li>
@@ -279,6 +316,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateLanguage(selector.value);
     selector.addEventListener("change", () => updateLanguage(selector.value));
 });
+
+  // Menü toggle
+document.getElementById("menuToggle").addEventListener("click", () => {
+    document.getElementById("menuList").classList.toggle("show");
+});
+
 </script>
 </body>
 </html>
