@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petfit - Evcil Hayvan Sağlık Takip Uygulaması | DxDigi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pawPrint {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1) rotate(180deg); opacity: 1; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 43, 54, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0074D9;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+
+        .language-option.active {
+            background: #0074D9;
+            color: #fff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(255,255,255,0.1)"/><path d="M40,40 Q45,35 50,40 Q55,45 60,40" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #FF6B6B, #FF5252);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1.1s both;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: #f8f9fa;
+            transform: translateX(10px);
+        }
+
+        .benefit-icon {
+            font-size: 2em;
+            color: #FF6B6B;
+            min-width: 60px;
+        }
+
+        .benefit-content h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .benefit-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .download p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #fff;
+            color: #FF6B6B;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #002b36;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">DxDigi</a>
+            <ul class="nav-links">
+                <li><a href="index.html" id="navHome">Ana Sayfa</a></li>
+                <li><a href="index.html#apps" id="navApps">Uygulamalar</a></li>
+                <li><a href="index.html#about" id="navAbout">Hakkımızda</a></li>
+                <li><a href="index.html#contact" id="navContact">İletişim</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="language-btn" id="languageBtn">🌐 TR</button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <div class="language-option active" data-lang="tr">🇹🇷 Türkçe</div>
+                    <div class="language-option" data-lang="en">🇬🇧 English</div>
+                    <div class="language-option" data-lang="pt">🇧🇷 Português</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="heroTitle">Petfit</h1>
+            <p id="heroSubtitle">Evcil dostunuzun sağlığını takip edin, veterinerinizle paylaşın</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.petfit" class="cta-button" id="ctaButton">Google Play'den İndirin</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" id="featuresTitle">Özellikler</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3 id="feature1Title">Günlük Aktivite Takibi</h3>
+                    <p id="feature1Desc">Evcil dostunuzun günlük aktivitelerini kaydedin ve takip edin</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏥</span>
+                    <h3 id="feature2Title">Veteriner Paylaşımı</h3>
+                    <p id="feature2Desc">Sağlık verilerini veterinerinizle kolayca paylaşın</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⏰</span>
+                    <h3 id="feature3Title">Hatırlatıcılar</h3>
+                    <p id="feature3Desc">Aşı, ilaç ve kontrol zamanları için hatırlatıcılar oluşturun</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📸</span>
+                    <h3 id="feature4Title">Fotoğraf & Video</h3>
+                    <p id="feature4Desc">Evcil dostunuzun fotoğraf ve videolarını kaydedin</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📈</span>
+                    <h3 id="feature5Title">Sağlık Verileri</h3>
+                    <p id="feature5Desc">Anlık sağlık ve performans verilerini takip edin</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏷️</span>
+                    <h3 id="feature6Title">Etiketleme</h3>
+                    <p id="feature6Desc">Fotoğraf ve videoları etiketleyerek organize edin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title" id="benefitsTitle">Faydalar</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit1Title">Daha İyi Sağlık Takibi</h4>
+                        <p id="benefit1Desc">Evcil hayvanınızın sağlık durumunu düzenli olarak izleyin</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💊</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit2Title">İlaç Hatırlatıcıları</h4>
+                        <p id="benefit2Desc">İlaç ve aşı zamanlarını asla kaçırmayın</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">👨‍⚕️</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit3Title">Veteriner İletişimi</h4>
+                        <p id="benefit3Desc">Veterinerinizle kolay ve hızlı iletişim kurun</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📱</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit4Title">Kolay Kullanım</h4>
+                        <p id="benefit4Desc">Kullanıcı dostu arayüz ile kolayca yönetin</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔒</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit5Title">Güvenli Veri</h4>
+                        <p id="benefit5Desc">Verileriniz güvenli bir şekilde saklanır</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div class="benefit-content">
+                        <h4 id="benefit6Title">Detaylı Raporlar</h4>
+                        <p id="benefit6Desc">Sağlık geçmişi ve gelişim raporları alın</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="download">
+        <div class="container">
+            <h2 id="downloadTitle">Şimdi İndirin</h2>
+            <p id="downloadDesc">Petfit ile evcil dostunuzun sağlığını en iyi şekilde takip edin</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.petfit" class="download-button" id="downloadButton">Google Play Store</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DxDigi - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            tr: {
+                navHome: "Ana Sayfa",
+                navApps: "Uygulamalar", 
+                navAbout: "Hakkımızda",
+                navContact: "İletişim",
+                heroTitle: "Petfit",
+                heroSubtitle: "Evcil dostunuzun sağlığını takip edin, veterinerinizle paylaşın",
+                ctaButton: "Google Play'den İndirin",
+                featuresTitle: "Özellikler",
+                feature1Title: "Günlük Aktivite Takibi",
+                feature1Desc: "Evcil dostunuzun günlük aktivitelerini kaydedin ve takip edin",
+                feature2Title: "Veteriner Paylaşımı", 
+                feature2Desc: "Sağlık verilerini veterinerinizle kolayca paylaşın",
+                feature3Title: "Hatırlatıcılar",
+                feature3Desc: "Aşı, ilaç ve kontrol zamanları için hatırlatıcılar oluşturun",
+                feature4Title: "Fotoğraf & Video",
+                feature4Desc: "Evcil dostunuzun fotoğraf ve videolarını kaydedin",
+                feature5Title: "Sağlık Verileri",
+                feature5Desc: "Anlık sağlık ve performans verilerini takip edin",
+                feature6Title: "Etiketleme",
+                feature6Desc: "Fotoğraf ve videoları etiketleyerek organize edin",
+                benefitsTitle: "Faydalar",
+                benefit1Title: "Daha İyi Sağlık Takibi",
+                benefit1Desc: "Evcil hayvanınızın sağlık durumunu düzenli olarak izleyin",
+                benefit2Title: "İlaç Hatırlatıcıları",
+                benefit2Desc: "İlaç ve aşı zamanlarını asla kaçırmayın",
+                benefit3Title: "Veteriner İletişimi",
+                benefit3Desc: "Veterinerinizle kolay ve hızlı iletişim kurun",
+                benefit4Title: "Kolay Kullanım",
+                benefit4Desc: "Kullanıcı dostu arayüz ile kolayca yönetin",
+                benefit5Title: "Güvenli Veri",
+                benefit5Desc: "Verileriniz güvenli bir şekilde saklanır",
+                benefit6Title: "Detaylı Raporlar",
+                benefit6Desc: "Sağlık geçmişi ve gelişim raporları alın",
+                downloadTitle: "Şimdi İndirin",
+                downloadDesc: "Petfit ile evcil dostunuzun sağlığını en iyi şekilde takip edin",
+                downloadButton: "Google Play Store"
+            },
+            en: {
+                navHome: "Home",
+                navApps: "Apps",
+                navAbout: "About Us", 
+                navContact: "Contact",
+                heroTitle: "Petfit",
+                heroSubtitle: "Track your pet's health, share with your veterinarian",
+                ctaButton: "Download from Google Play",
+                featuresTitle: "Features",
+                feature1Title: "Daily Activity Tracking",
+                feature1Desc: "Record and track your pet's daily activities",
+                feature2Title: "Veterinary Sharing",
+                feature2Desc: "Easily share health data with your veterinarian",
+                feature3Title: "Reminders",
+                feature3Desc: "Create reminders for vaccinations, medications and checkups",
+                feature4Title: "Photos & Videos", 
+                feature4Desc: "Save photos and videos of your pet",
+                feature5Title: "Health Data",
+                feature5Desc: "Track real-time health and performance data",
+                feature6Title: "Tagging",
+                feature6Desc: "Organize photos and videos with tags",
+                benefitsTitle: "Benefits",
+                benefit1Title: "Better Health Monitoring",
+                benefit1Desc: "Regularly monitor your pet's health condition",
+                benefit2Title: "Medication Reminders",
+                benefit2Desc: "Never miss medication and vaccination times",
+                benefit3Title: "Veterinary Communication",
+                benefit3Desc: "Easy and quick communication with your veterinarian",
+                benefit4Title: "Easy to Use",
+                benefit4Desc: "Manage easily with user-friendly interface",
+                benefit5Title: "Secure Data",
+                benefit5Desc: "Your data is stored securely",
+                benefit6Title: "Detailed Reports",
+                benefit6Desc: "Get health history and development reports",
+                downloadTitle: "Download Now",
+                downloadDesc: "Track your pet's health in the best way with Petfit",
+                downloadButton: "Google Play Store"
+            },
+            pt: {
+                navHome: "Início",
+                navApps: "Aplicativos",
+                navAbout: "Sobre Nós",
+                navContact: "Contato", 
+                heroTitle: "Petfit",
+                heroSubtitle: "Acompanhe a saúde do seu pet, compartilhe com seu veterinário",
+                ctaButton: "Baixar do Google Play",
+                featuresTitle: "Recursos",
+                feature1Title: "Acompanhamento de Atividade Diária",
+                feature1Desc: "Registre e acompanhe as atividades diárias do seu pet",
+                feature2Title: "Compartilhamento Veterinário",
+                feature2Desc: "Compartilhe facilmente dados de saúde com seu veterinário",
+                feature3Title: "Lembretes",
+                feature3Desc: "Crie lembretes para vacinas, medicamentos e consultas",
+                feature4Title: "Fotos e Vídeos",
+                feature4Desc: "Salve fotos e vídeos do seu pet",
+                feature5Title: "Dados de Saúde", 
+                feature5Desc: "Acompanhe dados de saúde e desempenho em tempo real",
+                feature6Title: "Marcação",
+                feature6Desc: "Organize fotos e vídeos com tags",
+                benefitsTitle: "Benefícios",
+                benefit1Title: "Melhor Monitoramento de Saúde",
+                benefit1Desc: "Monitore regularmente a condição de saúde do seu pet",
+                benefit2Title: "Lembretes de Medicação",
+                benefit2Desc: "Nunca perca horários de medicamentos e vacinas",
+                benefit3Title: "Comunicação Veterinária",
+                benefit3Desc: "Comunicação fácil e rápida com seu veterinário",
+                benefit4Title: "Fácil de Usar",
+                benefit4Desc: "Gerencie facilmente com interface amigável",
+                benefit5Title: "Dados Seguros",
+                benefit5Desc: "Seus dados são armazenados com segurança",
+                benefit6Title: "Relatórios Detalhados",
+                benefit6Desc: "Obtenha relatórios de histórico de saúde e desenvolvimento",
+                downloadTitle: "Baixe Agora",
+                downloadDesc: "Acompanhe a saúde do seu pet da melhor forma com o Petfit",
+                downloadButton: "Google Play Store"
+            }
+        };
+
+        let currentLang = 'tr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            Object.keys(t).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = t[key];
+                }
+            });
+
+            // Update language button
+            const flags = { tr: '🇹🇷 TR', en: '🇬🇧 EN', pt: '🇧🇷 PT' };
+            document.getElementById('languageBtn').textContent = `🌐 ${flags[lang].split(' ')[1]}`;
+            
+            // Update active language option
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Language selector functionality
+            const languageBtn = document.getElementById('languageBtn');
+            const languageDropdown = document.getElementById('languageDropdown');
+            
+            languageBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                languageDropdown.classList.toggle('show');
+            });
+            
+            document.addEventListener('click', () => {
+                languageDropdown.classList.remove('show');
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const lang = option.getAttribute('data-lang');
+                    updateLanguage(lang);
+                    languageDropdown.classList.remove('show');
+                });
+            });
+            
+            // Initialize with Turkish
+            updateLanguage('tr');
+        });
+    </script>
+</body>
+</html>
