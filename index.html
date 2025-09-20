@@ -451,6 +451,160 @@
             background: linear-gradient(90deg, #0074D9, #0056b3, #003d82);
         }
 
+        /* Contact Form Styles */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 116, 217, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .contact-item p {
+            color: #666;
+            margin: 0;
+        }
+
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0074D9;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 116, 217, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            padding: 18px 30px;
+            background: linear-gradient(45deg, #0074D9, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 116, 217, 0.3);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 116, 217, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Mobile Responsive for Contact */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-form-container {
+                padding: 20px;
+            }
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             nav {
@@ -485,6 +639,75 @@
                 margin: 0 10px;
             }
         }
+
+        /* Contact Form Styles */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-icon {
+            font-size: 1.5em;
+            color: #0074D9;
+        }
+        .contact-form-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-group label {
+            font-weight: 500;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #0074D9;
+            box-shadow: 0 0 10px rgba(0, 116, 217, 0.2);
+        }
+        .submit-button {
+            background-color: #0074D9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .form-message {
+            color: #0074D9;
+            font-size: 0.9em;
+        }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY4CRKKB3C"></script>
@@ -505,7 +728,7 @@
         <ul id="menuList">
             <li><a href="#apps" id="menuApps">Uygulamalar</a></li>
             <li><a href="#about" id="menuAbout">Hakkımızda</a></li>
-            <li><a href="#contact" id="menuContact">İletişim</a></li>
+            <li><a href="iletisim.html" id="menuContact">İletişim</a></li>
         </ul>
     </div>
     
@@ -581,12 +804,6 @@
     <p id="aboutText">DxDigi, dijital dünya ile gerçek hayat arasında köprü kuran yaşam teknolojileri geliştirir. Teknoloji bizim için bir amaç değil, yaşama katkı sağlayan bir aracıdır.</p>
 </section>
 
-<section id="contact">
-    <h2 id="contactTitle">İletişim</h2>
-    <p id="contactText">E-posta: info@dxdigi.com</p>
-    <a class="button" href="mailto:info@dxdigi.com" id="contactButton">E-posta Gönder</a>
-</section>
-
 <footer>
     &copy; 2025 DxDigi - Tüm Hakları Saklıdır.
 </footer>
@@ -604,7 +821,22 @@ const translations = {
         "aboutText": "DxDigi, dijital dünya ile gerçek hayat arasında köprü kuran yaşam teknolojileri geliştirir. Teknoloji bizim için bir amaç değil, yaşama katkı sağlayan bir aracıdır.",
         "contactTitle": "İletişim",
         "contactText": "E-posta: info@dxdigi.com",
-        "contactButton": "E-posta Gönder"
+        "contactButton": "E-posta Gönder",
+        "nameLabel": "Adınız",
+        "emailLabel": "E-posta Adresiniz",
+        "subjectLabel": "Konu",
+        "messageLabel": "Mesajınız",
+        "selectSubject": "Konu seçiniz...",
+        "generalInquiry": "Genel Bilgi",
+        "supportRequest": "Teknik Destek",
+        "businessInquiry": "İş Birliği",
+        "feedbackOption": "Geri Bildirim",
+        "appSupport": "Uygulama Desteği",
+        "buttonText": "📧 Email İstemcinizi Aç",
+        "emailTitle": "E-posta",
+        "websiteTitle": "Website",
+        "responseTitle": "Yanıt Süresi",
+        "responseTime": "24 saat içinde"
     },
     "en": {
         "mainSlogan": "DxDigi Life Technologies",
@@ -617,7 +849,22 @@ const translations = {
         "aboutText": "DxDigi develops life technologies that bridge the digital world with real life. For us, technology is not the goal but the tool that enhances life.",
         "contactTitle": "Contact",
         "contactText": "Email: info@dxdigi.com",
-        "contactButton": "Send Email"
+        "contactButton": "Send Email",
+        "nameLabel": "Your Name",
+        "emailLabel": "Your Email Address",
+        "subjectLabel": "Subject",
+        "messageLabel": "Your Message",
+        "selectSubject": "Select a subject...",
+        "generalInquiry": "General Inquiry",
+        "supportRequest": "Support Request",
+        "businessInquiry": "Business Inquiry",
+        "feedbackOption": "Feedback",
+        "appSupport": "App Support",
+        "buttonText": "📧 Open Email Client",
+        "emailTitle": "Email",
+        "websiteTitle": "Website",
+        "responseTitle": "Response Time",
+        "responseTime": "Within 24 hours"
     },
     "pt": {
         "mainSlogan": "DxDigi Tecnologias de Vida",
@@ -630,7 +877,22 @@ const translations = {
         "aboutText": "A DxDigi desenvolve tecnologias que conectam o mundo digital à vida real. Para nós, a tecnologia é uma ferramenta que melhora a vida.",
         "contactTitle": "Contato",
         "contactText": "Email: info@dxdigi.com",
-        "contactButton": "Enviar Email"
+        "contactButton": "Enviar Email",
+        "nameLabel": "Seu Nome",
+        "emailLabel": "Seu Endereço de Email",
+        "subjectLabel": "Assunto",
+        "messageLabel": "Sua Mensagem",
+        "selectSubject": "Selecione um assunto...",
+        "generalInquiry": "Pergunta Geral",
+        "supportRequest": "Solicitação de Suporte",
+        "businessInquiry": "Pergunta Comercial",
+        "feedbackOption": "Feedback",
+        "appSupport": "Suporte ao Aplicativo",
+        "buttonText": "📧 Abrir Cliente de Email",
+        "emailTitle": "E-mail",
+        "websiteTitle": "Site",
+        "responseTitle": "Tempo de Resposta",
+        "responseTime": "Dentro de 24 horas"
     }
 };
 
@@ -643,26 +905,24 @@ function updateLanguage(lang) {
     document.getElementById("appsTitle").textContent = translations[lang].appsTitle;
     document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
     document.getElementById("aboutText").textContent = translations[lang].aboutText;
-    document.getElementById("contactTitle").textContent = translations[lang].contactTitle;
-    document.getElementById("contactText").textContent = translations[lang].contactText;
-    document.getElementById("contactButton").textContent = translations[lang].contactButton;
-
-    // App descriptions toggle
-    document.getElementById("pinstoreText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("pinstoreTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("pinstoreTextPt").style.display = lang === "pt" ? "block" : "none";
-
-    document.getElementById("rotamlistText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("rotamlistTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("rotamlistTextPt").style.display = lang === "pt" ? "block" : "none";
-
-    document.getElementById("petimfitText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("petimfitTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("petimfitTextPt").style.display = lang === "pt" ? "block" : "none";
-
-    document.getElementById("olhosText").style.display = lang === "tr" ? "block" : "none";
-    document.getElementById("olhosTextEn").style.display = lang === "en" ? "block" : "none";
-    document.getElementById("olhosTextPt").style.display = lang === "pt" ? "block" : "none";
+    [
+        "nameLabel",
+        "emailLabel",
+        "subjectLabel",
+        "messageLabel",
+        "selectSubject",
+        "generalInquiry",
+        "supportRequest",
+        "businessInquiry",
+        "feedbackOption",
+        "appSupport",
+        "buttonText"
+    ].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && translations[lang][id] !== undefined) {
+            el.textContent = translations[lang][id];
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -746,6 +1006,59 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("menuToggle").addEventListener("click", () => {
     document.getElementById("menuList").classList.toggle("show");
 });
+
+// Contact form submission (yalnızca form mevcutsa çalıştır)
+const contactFormEl = document.getElementById("contactForm");
+if (contactFormEl) {
+    contactFormEl.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById("contactName").value;
+        const email = document.getElementById("contactEmail").value;
+        const subject = document.getElementById("contactSubject").value;
+        const message = document.getElementById("contactMessage").value;
+        
+        if (!name || !email || !subject || !message) {
+            showFormMessage("Lütfen tüm alanları doldurun.", "error");
+            return;
+        }
+        
+        const emailBody = `
+Gönderen: ${name}
+E-posta: ${email}
+Konu: ${subject}
+
+Mesaj:
+${message}
+
+---
+Bu mesaj DxDigi web sitesi iletişim formundan gönderilmiştir.
+Gönderim Tarihi: ${new Date().toLocaleString('tr-TR')}
+        `.trim();
+        
+        const mailtoLink = `mailto:info@dxdigi.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent(emailBody)}`;
+        showFormMessage("Email istemciniz açılıyor... Mesajınızı göndermek için 'Gönder' butonuna tıklayın.", "success");
+        window.location.href = mailtoLink;
+        setTimeout(() => {
+            document.getElementById("contactForm").reset();
+            hideFormMessage();
+        }, 2000);
+    });
+
+    function showFormMessage(message, type) {
+        const messageDiv = document.getElementById("formMessage");
+        if (!messageDiv) return;
+        messageDiv.textContent = message;
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.style.display = "block";
+    }
+
+    function hideFormMessage() {
+        const messageDiv = document.getElementById("formMessage");
+        if (!messageDiv) return;
+        messageDiv.style.display = "none";
+    }
+}
 </script>
 </body>
 </html>
