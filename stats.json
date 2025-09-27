@@ -1,0 +1,29 @@
+{
+  "total": 0,
+  "deb": 0,
+  "exe": 0,
+  "lastUpdated": "2025-01-27T22:00:00Z",
+  "version": "1.0.0",
+  "downloads": {
+    "daily": [],
+    "monthly": {
+      "2025-01": {
+        "total": 0,
+        "deb": 0,
+        "exe": 0
+      }
+    }
+  },
+  "platforms": {
+    "linux": {
+      "ubuntu": 0,
+      "debian": 0,
+      "other": 0
+    },
+    "windows": {
+      "win10": 0,
+      "win11": 0,
+      "other": 0
+    }
+  }
+}
