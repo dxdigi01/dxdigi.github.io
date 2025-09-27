@@ -394,6 +394,7 @@
         .app-card:nth-child(2) { animation-delay: 0.4s; }
         .app-card:nth-child(3) { animation-delay: 0.6s; }
         .app-card:nth-child(4) { animation-delay: 0.8s; }
+        .app-card:nth-child(5) { animation-delay: 1.0s; }
         
         .app-card::before {
             content: '';
@@ -727,6 +728,7 @@
     <div class="nav-center">
         <ul id="menuList">
             <li><a href="#apps" id="menuApps">Uygulamalar</a></li>
+            <li><a href="azulbrowser.html" id="menuAzulBrowser">AzulBrowser</a></li>
             <li><a href="#about" id="menuAbout">Hakkımızda</a></li>
             <li><a href="iletisim.html" id="menuContact">İletişim</a></li>
         </ul>
@@ -796,6 +798,14 @@
       <a class="button" href="olhos.html">Detaylar</a>
       <a class="button" href="https://play.google.com/store/apps/details?id=com.dxdigi.olhos">Google Play</a>
     </div>
+     <div class="app-card">
+      <h3>AzulBrowser</h3>
+      <p id="azulbrowserText">Yapay zeka entegrasyonu ile web deneyiminizi dönüştürün. LLM sohbet, sayfa özetleme, akıllı çeviri ve daha birçok AI özelliği ile modern web tarayıcısı deneyimi yaşayın.</p>
+      <p id="azulbrowserTextEn" style="display: none;">Transform your web experience with AI integration. Experience modern web browsing with LLM chat, page summarization, smart translation and many more AI features.</p>
+      <p id="azulbrowserTextPt" style="display: none;">Transforme sua experiência na web com integração de IA. Experimente a navegação web moderna com chat LLM, resumo de páginas, tradução inteligente e muitos outros recursos de IA.</p>
+      <a class="button" href="azulbrowser.html">Detaylar</a>
+      <a class="button" href="https://github.com/dxdigi/azulbrowser/releases">İndir</a>
+    </div>
   </div>
 </section>
 
@@ -813,6 +823,7 @@ const translations = {
     "tr": {
         "mainSlogan": "DxDigi Yaşam Teknolojileri",
         "menuApps": "Uygulamalar",
+        "menuAzulBrowser": "AzulBrowser",
         "menuAbout": "Hakkımızda",
         "menuContact": "İletişim",
         "headerSlogan": "İnsana, doğaya ve yaşama dokunan teknolojiler geliştiriyoruz.",
@@ -841,6 +852,7 @@ const translations = {
     "en": {
         "mainSlogan": "DxDigi Life Technologies",
         "menuApps": "Apps",
+        "menuAzulBrowser": "AzulBrowser",
         "menuAbout": "About Us",
         "menuContact": "Contact",
         "headerSlogan": "We build technologies that touch life, nature and people.",
@@ -869,6 +881,7 @@ const translations = {
     "pt": {
         "mainSlogan": "DxDigi Tecnologias de Vida",
         "menuApps": "Aplicativos",
+        "menuAzulBrowser": "AzulBrowser",
         "menuAbout": "Sobre Nós",
         "menuContact": "Contato",
         "headerSlogan": "Criamos tecnologias que tocam a vida, a natureza e as pessoas.",
@@ -899,6 +912,7 @@ const translations = {
 function updateLanguage(lang) {
     document.getElementById("mainSlogan").textContent = translations[lang].mainSlogan;
     document.getElementById("menuApps").textContent = translations[lang].menuApps;
+    document.getElementById("menuAzulBrowser").textContent = translations[lang].menuAzulBrowser;
     document.getElementById("menuAbout").textContent = translations[lang].menuAbout;
     document.getElementById("menuContact").textContent = translations[lang].menuContact;
     document.getElementById("headerSlogan").textContent = translations[lang].headerSlogan;
