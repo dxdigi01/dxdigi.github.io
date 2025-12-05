@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="refresh" content="0;url=splash.html" />
     <title>DxDigi - Yaşam Teknolojileri</title>
+    <script>
+        // Splash sayfasını ilk ziyarette göster
+        if (!sessionStorage.getItem('splashShown')) {
+            sessionStorage.setItem('splashShown', 'true');
+            window.location.href = '/splash.html';
+        }
+    </script>
     <style>
         html { scroll-behavior: smooth; }
         body {
