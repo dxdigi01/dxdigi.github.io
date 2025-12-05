@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DxDigi - Splash</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Background with stars */
+        .stars-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a1428 0%, #1a2a4a 50%, #0f1f3a 100%);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Video background */
+        .video-container {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in 2s forwards;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            aspect-ratio: auto;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: none;
+            background: black;
+        }
+
+        .video-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            pointer-events: none;
+            transform: scale(1.35);
+            transform-origin: center;
+        }
+
+        #endVideoContainer {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        #endVideoContainer.show {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+
+        /* Logo Overlay for Video Corner - covers runway watermark */
+        .video-logo-overlay {
+            display: none;
+        }
+
+        .video-logo-overlay.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .video-logo-overlay.hide {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .video-logo-overlay-text {
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+            font-size: clamp(18px, 3.3vw, 26px);
+            text-shadow: 
+                0 0 10px rgba(0, 212, 255, 0.9),
+                0 0 20px rgba(0, 212, 255, 0.7),
+                0 0 30px rgba(0, 212, 255, 0.5);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+
+        /* Splash container */
+        .splash-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            background: rgba(10, 20, 40, 0.95);
+        }
+
+        /* Neon frame */
+        .neon-frame {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: frameGlow 2s ease-in-out infinite;
+        }
+
+        .neon-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, #00d4ff, #0099ff) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), inset 0 0 30px rgba(0, 212, 255, 0.2);
+            animation: borderPulse 2s ease-in-out infinite;
+        }
+
+        .neon-inner-border {
+            position: absolute;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Logo text */
+        .logo-text {
+            position: relative;
+            z-index: 2;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: #ffffff;
+            text-shadow: 
+                0 0 10px rgba(0, 212, 255, 0.8),
+                0 0 20px rgba(0, 212, 255, 0.6),
+                0 0 30px rgba(0, 212, 255, 0.4);
+            animation: textGlow 2s ease-in-out infinite;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Animations */
+        @keyframes frameGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+            }
+        }
+
+        @keyframes borderPulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px rgba(0, 212, 255, 0.8),
+                    0 0 20px rgba(0, 212, 255, 0.6),
+                    0 0 30px rgba(0, 212, 255, 0.4);
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px rgba(0, 212, 255, 1),
+                    0 0 30px rgba(0, 212, 255, 0.8),
+                    0 0 40px rgba(0, 212, 255, 0.6);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .splash-container.hide {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        /* Loading indicator */
+        .loading-text {
+            position: absolute;
+            bottom: 40px;
+            font-size: 14px;
+            color: rgba(0, 212, 255, 0.7);
+            letter-spacing: 2px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Retro Scan Lines Effect */
+        .scan-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            animation: scanMove 8s linear infinite;
+        }
+
+        @keyframes scanMove {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+
+        /* Glitch Effect */
+        .glitch-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 8;
+            opacity: 0;
+        }
+
+        .glitch-overlay.active {
+            animation: glitchEffect 0.3s ease-out;
+        }
+
+        @keyframes glitchEffect {
+            0% {
+                background: rgba(0, 212, 255, 0.1);
+                opacity: 1;
+            }
+            50% {
+                background: rgba(255, 0, 150, 0.1);
+                opacity: 0.8;
+            }
+            100% {
+                background: transparent;
+                opacity: 0;
+            }
+        }
+
+        /* CRT Screen Transition */
+        .crt-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 12;
+            opacity: 0;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 212, 255, 0.1) 50%, 
+                transparent 100%);
+        }
+
+        .crt-transition.active {
+            animation: crtScan 1.5s ease-out forwards;
+        }
+
+        @keyframes crtScan {
+            0% {
+                opacity: 0;
+                clip-path: inset(0 0 100% 0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                clip-path: inset(100% 0 0 0);
+            }
+        }
+
+        /* Pixel Transition */
+        .pixel-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 11;
+            opacity: 0;
+            background: 
+                repeating-linear-gradient(0deg, 
+                    rgba(0, 212, 255, 0.3) 0px, 
+                    rgba(0, 212, 255, 0.3) 2px, 
+                    transparent 2px, 
+                    transparent 4px),
+                repeating-linear-gradient(90deg, 
+                    rgba(0, 212, 255, 0.3) 0px, 
+                    rgba(0, 212, 255, 0.3) 2px, 
+                    transparent 2px, 
+                    transparent 4px);
+        }
+
+        .pixel-transition.active {
+            animation: pixelDissolve 1s ease-out forwards;
+        }
+
+        @keyframes pixelDissolve {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Neon Flicker */
+        @keyframes neonFlicker {
+            0%, 100% {
+                text-shadow: 
+                    0 0 10px rgba(0, 212, 255, 0.8),
+                    0 0 20px rgba(0, 212, 255, 0.6),
+                    0 0 30px rgba(0, 212, 255, 0.4);
+                opacity: 1;
+            }
+            5% {
+                text-shadow: 
+                    0 0 5px rgba(0, 212, 255, 0.4),
+                    0 0 10px rgba(0, 212, 255, 0.2);
+                opacity: 0.8;
+            }
+            10% {
+                text-shadow: 
+                    0 0 10px rgba(0, 212, 255, 0.8),
+                    0 0 20px rgba(0, 212, 255, 0.6),
+                    0 0 30px rgba(0, 212, 255, 0.4);
+                opacity: 1;
+            }
+        }
+
+        .logo-text.flicker {
+            animation: neonFlicker 0.15s ease-in-out;
+        }
+
+        /* Chromatic Aberration */
+        @keyframes chromaticShift {
+            0% {
+                text-shadow: 
+                    -2px 0 rgba(255, 0, 0, 0.5),
+                    2px 0 rgba(0, 255, 255, 0.5),
+                    0 0 20px rgba(0, 212, 255, 0.6);
+            }
+            50% {
+                text-shadow: 
+                    0 0 rgba(255, 0, 0, 0.5),
+                    0 0 rgba(0, 255, 255, 0.5),
+                    0 0 30px rgba(0, 212, 255, 0.8);
+            }
+            100% {
+                text-shadow: 
+                    2px 0 rgba(255, 0, 0, 0.5),
+                    -2px 0 rgba(0, 255, 255, 0.5),
+                    0 0 20px rgba(0, 212, 255, 0.6);
+            }
+        }
+
+        .logo-text.chromatic {
+            animation: chromaticShift 0.4s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-text {
+                letter-spacing: 4px;
+            }
+
+            .loading-text {
+                bottom: 20px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars background -->
+    <div class="stars-background" id="starsBackground"></div>
+
+    <!-- Scan Lines (Retro CRT Effect) -->
+    <div class="scan-lines"></div>
+
+    <!-- Glitch Overlay -->
+    <div class="glitch-overlay" id="glitchOverlay"></div>
+
+    <!-- CRT Transition -->
+    <div class="crt-transition" id="crtTransition"></div>
+
+    <!-- Pixel Transition -->
+    <div class="pixel-transition" id="pixelTransition"></div>
+
+    <!-- Video container (hidden initially) -->
+    <div class="video-container" id="videoContainer">
+        <div class="video-frame">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/7RmF-2tqIGM?autoplay=1&mute=1&controls=0" 
+                title="DxDigi Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+            <!-- Logo Overlay for Video -->
+            <div class="video-logo-overlay" id="videoLogoOverlay">
+                <div class="video-logo-overlay-text">DxD</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Video container -->
+    <div class="video-container" id="endVideoContainer">
+        <div class="video-frame">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/c0ziHC4R__g?autoplay=1&mute=1&controls=0&loop=1&playlist=c0ziHC4R__g" 
+                title="DxDigi End Video" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+            <!-- Logo Overlay for End Video -->
+            <div class="video-logo-overlay" id="videoLogoOverlay2">
+                <div class="video-logo-overlay-text">DxD</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Splash screen -->
+    <div class="splash-container" id="splashContainer">
+        <div class="neon-frame">
+            <div class="neon-border"></div>
+            <div class="neon-inner-border"></div>
+            <div class="logo-text" id="logoText">DxDigi</div>
+        </div>
+        <div class="loading-text">LOADING...</div>
+    </div>
+
+    <script>
+        // Generate random stars
+        function generateStars() {
+            const starsBackground = document.getElementById('starsBackground');
+            const starCount = Math.floor(window.innerWidth / 50);
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsBackground.appendChild(star);
+            }
+        }
+
+        // Position logo over "runway" watermark in video
+        // 
+        // KEY OBSERVATION FROM SCREENSHOTS:
+        // - Wide screen: black bars on LEFT/RIGHT (vertical), runway is LEFT of black bar
+        // - Narrow screen: black bars on TOP/BOTTOM (horizontal), runway is ABOVE black bar
+        // 
+        // "runway" is always at the INNER corner of video content, not at screen edge!
+        // We need to position our logo at video content's corner, not screen's corner.
+        
+        function positionVideoLogo() {
+            const frames = document.querySelectorAll('.video-frame');
+            const logos = document.querySelectorAll('.video-logo-overlay');
+            
+            frames.forEach((frame, index) => {
+                const rect = frame.getBoundingClientRect();
+                const logo = logos[index];
+                if (!logo) return;
+                
+                // Çerçeve boyutlarına göre logo boyutunu hesapla
+                // Runway yazısını tamamen kapatmak için daha büyük boyut
+                const frameWidth = rect.width;
+                const frameHeight = rect.height;
+                
+                // Logo boyutu çerçevenin %22-28'i kadar olsun (runway yazısını tamamen kapatmak için)
+                const logoWidth = Math.max(frameWidth * 0.25, 180);
+                const logoHeight = Math.max(frameHeight * 0.16, 75);
+                
+                // Konumlandırma: sağ alt köşeye, çerçevenin içinde
+                const margin = Math.max(frameWidth * 0.015, 10);
+                const rightOffset = Math.max(window.innerWidth - rect.right + margin, margin);
+                const bottomOffset = Math.max(window.innerHeight - rect.bottom + margin, margin);
+                
+                logo.style.setProperty('--logo-width', `${logoWidth}px`);
+                logo.style.setProperty('--logo-height', `${logoHeight}px`);
+                logo.style.setProperty('--logo-right', `${rightOffset}px`);
+                logo.style.setProperty('--logo-bottom', `${bottomOffset}px`);
+            });
+        }
+
+        // Retro Effects Manager
+        class RetroEffects {
+            constructor() {
+                this.glitchOverlay = document.getElementById('glitchOverlay');
+                this.crtTransition = document.getElementById('crtTransition');
+                this.pixelTransition = document.getElementById('pixelTransition');
+                this.logoText = document.getElementById('logoText');
+            }
+
+            // Glitch effect
+            triggerGlitch() {
+                this.glitchOverlay.classList.remove('active');
+                void this.glitchOverlay.offsetWidth; // Reflow
+                this.glitchOverlay.classList.add('active');
+            }
+
+            // Neon flicker effect
+            triggerFlicker() {
+                this.logoText.classList.remove('flicker');
+                void this.logoText.offsetWidth; // Reflow
+                this.logoText.classList.add('flicker');
+            }
+
+            // Chromatic aberration effect
+            triggerChromatic() {
+                this.logoText.classList.remove('chromatic');
+                void this.logoText.offsetWidth; // Reflow
+                this.logoText.classList.add('chromatic');
+            }
+
+            // CRT scan transition
+            triggerCRTTransition() {
+                this.crtTransition.classList.remove('active');
+                void this.crtTransition.offsetWidth; // Reflow
+                this.crtTransition.classList.add('active');
+            }
+
+            // Pixel dissolve transition
+            triggerPixelTransition() {
+                this.pixelTransition.classList.remove('active');
+                void this.pixelTransition.offsetWidth; // Reflow
+                this.pixelTransition.classList.add('active');
+            }
+
+            // Random retro effect
+            triggerRandomEffect() {
+                const effects = [
+                    () => this.triggerGlitch(),
+                    () => this.triggerFlicker(),
+                    () => this.triggerChromatic()
+                ];
+                const randomEffect = effects[Math.floor(Math.random() * effects.length)];
+                randomEffect();
+            }
+        }
+
+        // Initialize
+        const retroEffects = new RetroEffects();
+        const SPLASH_DURATION = 3000; // 3 seconds for splash animation
+        const FIRST_VIDEO_DURATION = 5000; // 5 seconds for first video
+        const SECOND_VIDEO_DURATION = 4000; // 4 seconds for end video
+        const TOTAL_WAIT = SPLASH_DURATION + FIRST_VIDEO_DURATION + SECOND_VIDEO_DURATION;
+
+        generateStars();
+        positionVideoLogo();
+        window.addEventListener('resize', positionVideoLogo);
+
+        // Trigger retro effects during splash
+        let effectInterval = setInterval(() => {
+            retroEffects.triggerRandomEffect();
+        }, 600);
+
+        // Trigger CRT transition at 1.5 seconds
+        setTimeout(() => {
+            retroEffects.triggerCRTTransition();
+        }, 1500);
+
+        // Trigger pixel transition at 2.2 seconds
+        setTimeout(() => {
+            retroEffects.triggerPixelTransition();
+        }, 2200);
+
+        // Hide splash and show first video after animation
+        setTimeout(() => {
+            clearInterval(effectInterval);
+            const splashContainer = document.getElementById('splashContainer');
+            splashContainer.classList.add('hide');
+            
+            // Show logo overlay
+            const videoLogoOverlay = document.getElementById('videoLogoOverlay');
+            videoLogoOverlay.style.opacity = '1';
+        }, SPLASH_DURATION);
+
+        // Switch to end video after first video duration
+        setTimeout(() => {
+            const videoContainer = document.getElementById('videoContainer');
+            const endVideoContainer = document.getElementById('endVideoContainer');
+            const videoLogoOverlay2 = document.getElementById('videoLogoOverlay2');
+            
+            videoContainer.style.opacity = '0';
+            videoContainer.style.pointerEvents = 'none';
+            
+            endVideoContainer.classList.add('show');
+            
+            // Show overlay for second video
+            videoLogoOverlay2.style.opacity = '1';
+        }, SPLASH_DURATION + FIRST_VIDEO_DURATION);
+
+        // Hide logo overlay before redirect
+        setTimeout(() => {
+            const videoLogoOverlay = document.getElementById('videoLogoOverlay');
+            const videoLogoOverlay2 = document.getElementById('videoLogoOverlay2');
+            
+            videoLogoOverlay.classList.add('hide');
+            videoLogoOverlay2.classList.add('hide');
+        }, TOTAL_WAIT - 500);
+
+        // Redirect to home after total wait time
+        setTimeout(() => {
+            window.location.href = '/index.html';
+        }, TOTAL_WAIT);
+
+        // Handle window resize for stars
+        window.addEventListener('resize', () => {
+            const starsBackground = document.getElementById('starsBackground');
+            starsBackground.innerHTML = '';
+            generateStars();
+        });
+    </script>
+</body>
+</html>
