@@ -631,8 +631,9 @@
         const retroEffects = new RetroEffects();
         const SPLASH_DURATION = 3000; // 3 seconds for splash animation
         const FIRST_VIDEO_DURATION = 5000; // 5 seconds for first video
+        const VIDEO_TRANSITION_DELAY = 2000; // 2 seconds transition delay between videos
         const SECOND_VIDEO_DURATION = 4000; // 4 seconds for end video
-        const TOTAL_WAIT = SPLASH_DURATION + FIRST_VIDEO_DURATION + SECOND_VIDEO_DURATION;
+        const TOTAL_WAIT = SPLASH_DURATION + FIRST_VIDEO_DURATION + VIDEO_TRANSITION_DELAY + SECOND_VIDEO_DURATION;
 
         generateStars();
         positionVideoLogo();
@@ -664,7 +665,7 @@
             videoLogoOverlay.style.opacity = '1';
         }, SPLASH_DURATION);
 
-        // Switch to end video after first video duration
+        // Switch to end video after first video duration + transition delay
         setTimeout(() => {
             const videoContainer = document.getElementById('videoContainer');
             const endVideoContainer = document.getElementById('endVideoContainer');
@@ -677,7 +678,7 @@
             
             // Show overlay for second video
             videoLogoOverlay2.style.opacity = '1';
-        }, SPLASH_DURATION + FIRST_VIDEO_DURATION);
+        }, SPLASH_DURATION + FIRST_VIDEO_DURATION + VIDEO_TRANSITION_DELAY);
 
         // Hide logo overlay before redirect
         setTimeout(() => {
