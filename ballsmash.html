@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ball Smash</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:,">
+
+  <!-- IMPORT MAP -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    #hud {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-family: monospace;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="hud">Loading...</div>
+
+<!-- MAIN GAME CODE -->
+<script type="module">
+import * as THREE from "three";
+import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
+import * as CANNON from "https://cdn.jsdelivr.net/npm/cannon-es@0.20.0/dist/cannon-es.js";
+
+/* =========================================================
+   LEVEL SYSTEM
+========================================================= */
+const defaultLevel = {
+  blocks: [
+    { x:0,y:0.3,z:-6 },
+    { x:0,y:0.9,z:-6 },
+    { x:0,y:1.5,z:-6 },
+    { x:0,y:2.1,z:-6 }
+  ]
+};
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+let scene, camera, renderer, world;
+let objects = [], blocks = [];
+let trajectoryLine;
+
+let score = 0, combo = 1, shots = 0;
+let slowMo = false;
+let replayBuffer = [];
+let isReplaying = false;
+
+/* INPUT */
+let aiming = false;
+let start = new THREE.Vector3();
+let end = new THREE.Vector3();
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+
+/* CAMERA */
+let camTarget = new THREE.Vector3();
+
+/* =========================================================
+   INIT
+========================================================= */
+init();
+animate();
+
+function init() {
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x202020);
+
+  camera = new THREE.PerspectiveCamera(60, innerWidth/innerHeight, 0.1, 100);
+  camera.position.set(0, 3, 8);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.xr.enabled = true;
+  document.body.appendChild(renderer.domElement);
+  document.body.appendChild(VRButton.createButton(renderer));
+
+  scene.add(new THREE.HemisphereLight(0xffffff,0x444444,1.2));
+  const dl = new THREE.DirectionalLight(0xffffff,0.8);
+  dl.position.set(5,10,5);
+  scene.add(dl);
+
+  setupPhysics();
+  setupGround();
+  setupTrajectory();
+  setupHUD();
+  setupInput();
+  createLevel(defaultLevel);
+
+  window.addEventListener("resize", onResize);
+}
+
+/* =========================================================
+   PHYSICS
+========================================================= */
+function setupPhysics() {
+  world = new CANNON.World();
+  world.gravity.set(0,-9.82,0);
+}
+
+/* =========================================================
+   GROUND
+========================================================= */
+function setupGround() {
+  const body = new CANNON.Body({ mass:0, shape:new CANNON.Plane() });
+  body.quaternion.setFromEuler(-Math.PI/2,0,0);
+  world.addBody(body);
+
+  const mesh = new THREE.Mesh(
+    new THREE.PlaneGeometry(40,40),
+    new THREE.MeshStandardMaterial({ color:0x444444 })
+  );
+  mesh.rotation.x = -Math.PI/2;
+  scene.add(mesh);
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+function setupHUD() {
+  updateHUD();
+}
+
+function updateHUD() {
+  document.getElementById("hud").innerHTML =
+    `Score: ${score}<br>Combo: x${combo}<br>Shots: ${shots}<br>
+     <small>R: Replay | E: Export Level</small>`;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+function setupInput() {
+  window.addEventListener("pointerdown", () => aiming = true);
+
+  window.addEventListener("pointermove", e => {
+    if (!aiming) return;
+    pointer.x = (e.clientX/innerWidth)*2-1;
+    pointer.y = -(e.clientY/innerHeight)*2+1;
+    raycaster.setFromCamera(pointer, camera);
+    start.copy(camera.position);
+    end.copy(raycaster.ray.origin)
+       .add(raycaster.ray.direction.clone().multiplyScalar(10));
+    updateTrajectory();
+  });
+
+  window.addEventListener("pointerup", () => {
+    if (!aiming) return;
+    aiming = false;
+    fireBall(start,end);
+    trajectoryLine.visible=false;
+  });
+
+  window.addEventListener("keydown", e => {
+    if (e.key === "r") startReplay();
+    if (e.key === "e") exportLevel();
+  });
+}
+
+/* =========================================================
+   TRAJECTORY
+========================================================= */
+function setupTrajectory() {
+  trajectoryLine = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(),new THREE.Vector3()
+    ]),
+    new THREE.LineBasicMaterial({ color:0xffff00 })
+  );
+  trajectoryLine.visible=false;
+  scene.add(trajectoryLine);
+}
+
+function updateTrajectory() {
+  trajectoryLine.visible=true;
+  trajectoryLine.geometry.setFromPoints([start,end]);
+}
+
+/* =========================================================
+   LEVEL
+========================================================= */
+function createLevel(data) {
+  data.blocks.forEach(b=>{
+    const body = new CANNON.Body({
+      mass:2,
+      shape:new CANNON.Box(new CANNON.Vec3(0.3,0.3,0.3)),
+      position:new CANNON.Vec3(b.x,b.y,b.z)
+    });
+    body.addEventListener("collide", e=>{
+      if (e.contact.getImpactVelocityAlongNormal() > 2) {
+        score += 10 * combo++;
+        updateHUD();
+      }
+    });
+
+    const mesh = new THREE.Mesh(
+      new THREE.BoxGeometry(0.6,0.6,0.6),
+      new THREE.MeshStandardMaterial({ color:0xff4444 })
+    );
+
+    world.addBody(body);
+    scene.add(mesh);
+    objects.push({body,mesh});
+    blocks.push(body);
+  });
+}
+
+/* =========================================================
+   BALL
+========================================================= */
+function fireBall(from,to) {
+  shots++; combo = 1; updateHUD();
+
+  const dir = new THREE.Vector3().subVectors(to,from).normalize();
+  const power = from.distanceTo(to)*2;
+
+  const body = new CANNON.Body({
+    mass:1,
+    shape:new CANNON.Sphere(0.25),
+    position:new CANNON.Vec3(from.x,from.y,from.z)
+  });
+  body.velocity.set(dir.x*power,dir.y*power,dir.z*power);
+
+  const mesh = new THREE.Mesh(
+    new THREE.SphereGeometry(0.25,16,16),
+    new THREE.MeshStandardMaterial({ color:0x00ff00 })
+  );
+
+  world.addBody(body);
+  scene.add(mesh);
+  objects.push({body,mesh});
+}
+
+/* =========================================================
+   REPLAY
+========================================================= */
+function startReplay() {
+  isReplaying = true;
+  let i = 0;
+  const interval = setInterval(()=>{
+    if (i >= replayBuffer.length) {
+      clearInterval(interval);
+      isReplaying = false;
+      return;
+    }
+    objects.forEach((o,j)=>{
+      if (replayBuffer[i][j]) {
+        o.body.position.copy(replayBuffer[i][j].pos);
+        o.body.quaternion.copy(replayBuffer[i][j].quat);
+      }
+    });
+    i++;
+  },16);
+}
+
+/* =========================================================
+   LEVEL EXPORT
+========================================================= */
+function exportLevel() {
+  console.log(JSON.stringify({
+    blocks: blocks.map(b=>({
+      x:b.position.x,
+      y:b.position.y,
+      z:b.position.z
+    }))
+  }, null, 2));
+}
+
+/* =========================================================
+   LOOP
+========================================================= */
+function animate() {
+  renderer.setAnimationLoop(()=>{
+    if (!isReplaying) {
+      world.step(1/60);
+      replayBuffer.push(objects.map(o=>({
+        pos:o.body.position.clone(),
+        quat:o.body.quaternion.clone()
+      })));
+      if (replayBuffer.length > 600) replayBuffer.shift();
+    }
+
+    objects.forEach(o=>{
+      o.mesh.position.copy(o.body.position);
+      o.mesh.quaternion.copy(o.body.quaternion);
+    });
+
+    renderer.render(scene,camera);
+  });
+}
+
+function onResize() {
+  camera.aspect=innerWidth/innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth,innerHeight);
+}
+</script>
+
+</body>
+</html>
