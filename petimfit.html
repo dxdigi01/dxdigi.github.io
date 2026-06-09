@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     
     <!-- Premium SEO Meta Tags -->
     <meta name="description" content="Petimfit - Evcil dostunuzun günlük aktivitelerini, aşı ve ilaç takvimini, sağlık verilerini, veteriner detaylarını ve gelişim raporlarını takip edebileceğiniz sağlık takip mobil uygulaması." />
-    <meta name="keywords" content="petimfit, evcil hayvan sağlık takip, kedi sağlık takip, köpek aşı takvimi, veteriner takip uygulaması, evcil hayvan bakım, dxdigi" />
+    <meta name="keywords" content="petimfit, pet care, pet health tracker, vet app, dog tracker, cat health, dxdigi" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dxdigi.com/petimfit.html" />
     
@@ -18,7 +18,7 @@
     <meta property="og:description" content="Evcil dostunuzun günlük aktivitelerini, aşı ve ilaç takvimini, sağlık verilerini takip edebileceğiniz mobil uygulama." />
     <meta property="og:image" content="https://dxdigi.com/assets/logo.png" />
     <meta property="og:site_name" content="DxDigi" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -118,43 +118,17 @@
         }
 
         /* Language Selector */
-        .language-selector {
-            position: relative;
-        }
+        
 
-        .language-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+        
 
         .language-btn:hover {
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
+        
 
-        .language-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        
 
         .language-option {
             padding: 12px 16px;
@@ -419,18 +393,12 @@
         <div class="nav-container">
             <a href="index.html" class="logo">DxDigi</a>
             <ul class="nav-links">
-                <li><a href="index.html" id="navHome">Ana Sayfa</a></li>
-                <li><a href="index.html#apps" id="navApps">Uygulamalar</a></li>
-                <li><a href="index.html#about" id="navAbout">Hakkımızda</a></li>
-                <li><a href="iletisim.html" id="navContact">İletişim</a></li>
+                <li><a href="index.html" id="navHome">Home</a></li>
+                <li><a href="index.html#apps" id="navApps">Apps</a></li>
+                <li><a href="index.html#about" id="navAbout">About Us</a></li>
+                <li><a href="contact.html" id="navContact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <button class="language-btn" id="languageBtn">🌐 TR</button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option active" data-lang="tr">🇹🇷 Türkçe</div>
-                    <div class="language-option" data-lang="en">🇬🇧 English</div>
-                    <div class="language-option" data-lang="pt">🇧🇷 Português</div>
-                </div>
+            
             </div>
         </div>
     </nav>
@@ -438,44 +406,44 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="heroTitle">Petimfit</h1>
-            <p id="heroSubtitle">Evcil dostunuzun sağlığını takip edin, veterinerinizle paylaşın</p>
-            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.petimfit" class="cta-button" id="ctaButton">Google Play'den İndirin</a>
+            <p id="heroSubtitle">Track your pet's health, share with your veterinarian</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.petimfit" class="cta-button" id="ctaButton">Download from Google Play</a>
         </div>
     </section>
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title" id="featuresTitle">Özellikler</h2>
+            <h2 class="section-title" id="featuresTitle">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">📊</span>
-                    <h3 id="feature1Title">Günlük Aktivite Takibi</h3>
-                    <p id="feature1Desc">Evcil dostunuzun günlük aktivitelerini kaydedin ve takip edin</p>
+                    <h3 id="feature1Title">Daily Activity Tracking</h3>
+                    <p id="feature1Desc">Record and track your pet's daily activities</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🏥</span>
-                    <h3 id="feature2Title">Veteriner Paylaşımı</h3>
-                    <p id="feature2Desc">Sağlık verilerini veterinerinizle kolayca paylaşın</p>
+                    <h3 id="feature2Title">Veterinary Sharing</h3>
+                    <p id="feature2Desc">Easily share health data with your veterinarian</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">⏰</span>
-                    <h3 id="feature3Title">Hatırlatıcılar</h3>
-                    <p id="feature3Desc">Aşı, ilaç ve kontrol zamanları için hatırlatıcılar oluşturun</p>
+                    <h3 id="feature3Title">Reminders</h3>
+                    <p id="feature3Desc">Create reminders for vaccinations, medications and checkups</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📸</span>
-                    <h3 id="feature4Title">Fotoğraf & Video</h3>
-                    <p id="feature4Desc">Evcil dostunuzun fotoğraf ve videolarını kaydedin</p>
+                    <h3 id="feature4Title">Photos & Videos</h3>
+                    <p id="feature4Desc">Save photos and videos of your pet</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📈</span>
-                    <h3 id="feature5Title">Sağlık Verileri</h3>
-                    <p id="feature5Desc">Anlık sağlık ve performans verilerini takip edin</p>
+                    <h3 id="feature5Title">Health Data</h3>
+                    <p id="feature5Desc">Track real-time health and performance data</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🏷️</span>
-                    <h3 id="feature6Title">Etiketleme</h3>
-                    <p id="feature6Desc">Fotoğraf ve videoları etiketleyerek organize edin</p>
+                    <h3 id="feature6Title">Tagging</h3>
+                    <p id="feature6Desc">Organize photos and videos with tags</p>
                 </div>
             </div>
         </div>
@@ -483,48 +451,48 @@
 
     <section class="benefits">
         <div class="container">
-            <h2 class="section-title" id="benefitsTitle">Faydalar</h2>
+            <h2 class="section-title" id="benefitsTitle">Benefits</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="benefit-icon">🎯</div>
                     <div class="benefit-content">
-                        <h4 id="benefit1Title">Daha İyi Sağlık Takibi</h4>
-                        <p id="benefit1Desc">Evcil hayvanınızın sağlık durumunu düzenli olarak izleyin</p>
+                        <h4 id="benefit1Title">Better Health Monitoring</h4>
+                        <p id="benefit1Desc">Regularly monitor your pet's health condition</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">💊</div>
                     <div class="benefit-content">
-                        <h4 id="benefit2Title">İlaç Hatırlatıcıları</h4>
-                        <p id="benefit2Desc">İlaç ve aşı zamanlarını asla kaçırmayın</p>
+                        <h4 id="benefit2Title">Medication Reminders</h4>
+                        <p id="benefit2Desc">Never miss medication and vaccination times</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">👨‍⚕️</div>
                     <div class="benefit-content">
-                        <h4 id="benefit3Title">Veteriner İletişimi</h4>
-                        <p id="benefit3Desc">Veterinerinizle kolay ve hızlı iletişim kurun</p>
+                        <h4 id="benefit3Title">Veterinary Communication</h4>
+                        <p id="benefit3Desc">Easy and quick communication with your veterinarian</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">📱</div>
                     <div class="benefit-content">
-                        <h4 id="benefit4Title">Kolay Kullanım</h4>
-                        <p id="benefit4Desc">Kullanıcı dostu arayüz ile kolayca yönetin</p>
+                        <h4 id="benefit4Title">Easy to Use</h4>
+                        <p id="benefit4Desc">Manage easily with user-friendly interface</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">🔒</div>
                     <div class="benefit-content">
-                        <h4 id="benefit5Title">Güvenli Veri</h4>
-                        <p id="benefit5Desc">Verileriniz güvenli bir şekilde saklanır</p>
+                        <h4 id="benefit5Title">Secure Data</h4>
+                        <p id="benefit5Desc">Your data is stored securely</p>
                     </div>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">📊</div>
                     <div class="benefit-content">
-                        <h4 id="benefit6Title">Detaylı Raporlar</h4>
-                        <p id="benefit6Desc">Sağlık geçmişi ve gelişim raporları alın</p>
+                        <h4 id="benefit6Title">Detailed Reports</h4>
+                        <p id="benefit6Desc">Get health history and development reports</p>
                     </div>
                 </div>
             </div>
@@ -533,186 +501,16 @@
 
     <section class="download">
         <div class="container">
-            <h2 id="downloadTitle">Şimdi İndirin</h2>
-            <p id="downloadDesc">Petimfit ile evcil dostunuzun sağlığını en iyi şekilde takip edin</p>
+            <h2 id="downloadTitle">Download Now</h2>
+            <p id="downloadDesc">Track your pet's health in the best way with Petimfit</p>
             <a href="https://play.google.com/store/apps/details?id=com.dxdigi.petimfit" class="download-button" id="downloadButton">Google Play Store</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 DxDigi - Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2025 DxDigi - All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const translations = {
-            tr: {
-                navHome: "Ana Sayfa",
-                navApps: "Uygulamalar", 
-                navAbout: "Hakkımızda",
-                navContact: "İletişim",
-                heroTitle: "Petimfit",
-                heroSubtitle: "Evcil dostunuzun sağlığını takip edin, veterinerinizle paylaşın",
-                ctaButton: "Google Play'den İndirin",
-                featuresTitle: "Özellikler",
-                feature1Title: "Günlük Aktivite Takibi",
-                feature1Desc: "Evcil dostunuzun günlük aktivitelerini kaydedin ve takip edin",
-                feature2Title: "Veteriner Paylaşımı", 
-                feature2Desc: "Sağlık verilerini veterinerinizle kolayca paylaşın",
-                feature3Title: "Hatırlatıcılar",
-                feature3Desc: "Aşı, ilaç ve kontrol zamanları için hatırlatıcılar oluşturun",
-                feature4Title: "Fotoğraf & Video",
-                feature4Desc: "Evcil dostunuzun fotoğraf ve videolarını kaydedin",
-                feature5Title: "Sağlık Verileri",
-                feature5Desc: "Anlık sağlık ve performans verilerini takip edin",
-                feature6Title: "Etiketleme",
-                feature6Desc: "Fotoğraf ve videoları etiketleyerek organize edin",
-                benefitsTitle: "Faydalar",
-                benefit1Title: "Daha İyi Sağlık Takibi",
-                benefit1Desc: "Evcil hayvanınızın sağlık durumunu düzenli olarak izleyin",
-                benefit2Title: "İlaç Hatırlatıcıları",
-                benefit2Desc: "İlaç ve aşı zamanlarını asla kaçırmayın",
-                benefit3Title: "Veteriner İletişimi",
-                benefit3Desc: "Veterinerinizle kolay ve hızlı iletişim kurun",
-                benefit4Title: "Kolay Kullanım",
-                benefit4Desc: "Kullanıcı dostu arayüz ile kolayca yönetin",
-                benefit5Title: "Güvenli Veri",
-                benefit5Desc: "Verileriniz güvenli bir şekilde saklanır",
-                benefit6Title: "Detaylı Raporlar",
-                benefit6Desc: "Sağlık geçmişi ve gelişim raporları alın",
-                downloadTitle: "Şimdi İndirin",
-                downloadDesc: "Petimfit ile evcil dostunuzun sağlığını en iyi şekilde takip edin",
-                downloadButton: "Google Play Store"
-            },
-            en: {
-                navHome: "Home",
-                navApps: "Apps",
-                navAbout: "About Us", 
-                navContact: "Contact",
-                heroTitle: "Petimfit",
-                heroSubtitle: "Track your pet's health, share with your veterinarian",
-                ctaButton: "Download from Google Play",
-                featuresTitle: "Features",
-                feature1Title: "Daily Activity Tracking",
-                feature1Desc: "Record and track your pet's daily activities",
-                feature2Title: "Veterinary Sharing",
-                feature2Desc: "Easily share health data with your veterinarian",
-                feature3Title: "Reminders",
-                feature3Desc: "Create reminders for vaccinations, medications and checkups",
-                feature4Title: "Photos & Videos", 
-                feature4Desc: "Save photos and videos of your pet",
-                feature5Title: "Health Data",
-                feature5Desc: "Track real-time health and performance data",
-                feature6Title: "Tagging",
-                feature6Desc: "Organize photos and videos with tags",
-                benefitsTitle: "Benefits",
-                benefit1Title: "Better Health Monitoring",
-                benefit1Desc: "Regularly monitor your pet's health condition",
-                benefit2Title: "Medication Reminders",
-                benefit2Desc: "Never miss medication and vaccination times",
-                benefit3Title: "Veterinary Communication",
-                benefit3Desc: "Easy and quick communication with your veterinarian",
-                benefit4Title: "Easy to Use",
-                benefit4Desc: "Manage easily with user-friendly interface",
-                benefit5Title: "Secure Data",
-                benefit5Desc: "Your data is stored securely",
-                benefit6Title: "Detailed Reports",
-                benefit6Desc: "Get health history and development reports",
-                downloadTitle: "Download Now",
-                downloadDesc: "Track your pet's health in the best way with Petimfit",
-                downloadButton: "Google Play Store"
-            },
-            pt: {
-                navHome: "Início",
-                navApps: "Aplicativos",
-                navAbout: "Sobre Nós",
-                navContact: "Contato", 
-                heroTitle: "Petimfit",
-                heroSubtitle: "Acompanhe a saúde do seu pet, compartilhe com seu veterinário",
-                ctaButton: "Baixar do Google Play",
-                featuresTitle: "Recursos",
-                feature1Title: "Acompanhamento de Atividade Diária",
-                feature1Desc: "Registre e acompanhe as atividades diárias do seu pet",
-                feature2Title: "Compartilhamento Veterinário",
-                feature2Desc: "Compartilhe facilmente dados de saúde com seu veterinário",
-                feature3Title: "Lembretes",
-                feature3Desc: "Crie lembretes para vacinas, medicamentos e consultas",
-                feature4Title: "Fotos e Vídeos",
-                feature4Desc: "Salve fotos e vídeos do seu pet",
-                feature5Title: "Dados de Saúde", 
-                feature5Desc: "Acompanhe dados de saúde e desempenho em tempo real",
-                feature6Title: "Marcação",
-                feature6Desc: "Organize fotos e vídeos com tags",
-                benefitsTitle: "Benefícios",
-                benefit1Title: "Melhor Monitoramento de Saúde",
-                benefit1Desc: "Monitore regularmente a condição de saúde do seu pet",
-                benefit2Title: "Lembretes de Medicação",
-                benefit2Desc: "Nunca perca horários de medicamentos e vacinas",
-                benefit3Title: "Comunicação Veterinária",
-                benefit3Desc: "Comunicação fácil e rápida com seu veterinário",
-                benefit4Title: "Fácil de Usar",
-                benefit4Desc: "Gerencie facilmente com interface amigável",
-                benefit5Title: "Dados Seguros",
-                benefit5Desc: "Seus dados são armazenados com segurança",
-                benefit6Title: "Relatórios Detalhados",
-                benefit6Desc: "Obtenha relatórios de histórico de saúde e desenvolvimento",
-                downloadTitle: "Baixe Agora",
-                downloadDesc: "Acompanhe a saúde do seu pet da melhor forma com o Petimfit",
-                downloadButton: "Google Play Store"
-            }
-        };
-
-        let currentLang = 'tr';
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = t[key];
-                }
-            });
-
-            // Update language button
-            const flags = { tr: '🇹🇷 TR', en: '🇬🇧 EN', pt: '🇧🇷 PT' };
-            document.getElementById('languageBtn').textContent = `🌐 ${flags[lang].split(' ')[1]}`;
-            
-            // Update active language option
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-lang') === lang) {
-                    option.classList.add('active');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Language selector functionality
-            const languageBtn = document.getElementById('languageBtn');
-            const languageDropdown = document.getElementById('languageDropdown');
-            
-            languageBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-            
-            document.addEventListener('click', () => {
-                languageDropdown.classList.remove('show');
-            });
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const lang = option.getAttribute('data-lang');
-                    updateLanguage(lang);
-                    languageDropdown.classList.remove('show');
-                });
-            });
-            
-            // Initialize with Turkish
-            updateLanguage('tr');
-        });
-    </script>
+    
 </body>
 </html>
