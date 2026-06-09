@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <meta property="og:description" content="Ekranınızın mavi ışığını filtreleyerek göz yorgunluğunu azaltan, otomatik ekran sıcaklığı ayarlayan mobil uygulama." />
     <meta property="og:image" content="https://dxdigi.com/assets/logo.png" />
     <meta property="og:site_name" content="DxDigi" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -118,43 +118,17 @@
         }
 
         /* Language Selector */
-        .language-selector {
-            position: relative;
-        }
+        
 
-        .language-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+        
 
         .language-btn:hover {
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
+        
 
-        .language-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        
 
         .language-option {
             padding: 12px 16px;
@@ -372,18 +346,12 @@
         <div class="nav-container">
             <a href="index.html" class="logo">DxDigi</a>
             <ul class="nav-links">
-                <li><a href="index.html" id="navHome">Ana Sayfa</a></li>
-                <li><a href="index.html#apps" id="navApps">Uygulamalar</a></li>
-                <li><a href="index.html#about" id="navAbout">Hakkımızda</a></li>
-                <li><a href="iletisim.html" id="navContact">İletişim</a></li>
+                <li><a href="index.html" id="navHome">Home</a></li>
+                <li><a href="index.html#apps" id="navApps">Apps</a></li>
+                <li><a href="index.html#about" id="navAbout">About Us</a></li>
+                <li><a href="contact.html" id="navContact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <button class="language-btn" id="languageBtn">🌐 TR</button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option active" data-lang="tr">🇹🇷 Türkçe</div>
-                    <div class="language-option" data-lang="en">🇬🇧 English</div>
-                    <div class="language-option" data-lang="pt">🇧🇷 Português</div>
-                </div>
+            
             </div>
         </div>
     </nav>
@@ -391,44 +359,44 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="heroTitle">Olhos</h1>
-            <p id="heroSubtitle">Gözlerinizi koruyun, dijital yorgunluğu azaltın</p>
-            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.olhos" class="cta-button" id="ctaButton">Google Play'den İndirin</a>
+            <p id="heroSubtitle">Protect your eyes, reduce digital fatigue</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.olhos" class="cta-button" id="ctaButton">Download from Google Play</a>
         </div>
     </section>
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title" id="featuresTitle">Özellikler</h2>
+            <h2 class="section-title" id="featuresTitle">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">🌅</span>
-                    <h3 id="feature1Title">Otomatik Ayarlama</h3>
-                    <p id="feature1Desc">Gün doğumu ve gün batımı saatlerine göre ekran sıcaklığını otomatik olarak ayarlar</p>
+                    <h3 id="feature1Title">Auto Adjustment</h3>
+                    <p id="feature1Desc">Automatically adjusts screen temperature based on sunrise and sunset times</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎛️</span>
-                    <h3 id="feature2Title">Manuel Kontrol</h3>
-                    <p id="feature2Desc">Renk sıcaklığını ve yoğunluğunu istediğiniz gibi manuel olarak ayarlayabilirsiniz</p>
+                    <h3 id="feature2Title">Manual Control</h3>
+                    <p id="feature2Desc">Manually adjust color temperature and intensity as you prefer</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📱</span>
-                    <h3 id="feature3Title">Uygulama Bazlı</h3>
-                    <p id="feature3Desc">Favori uygulamalarınızda otomatik olarak etkinleşir</p>
+                    <h3 id="feature3Title">App-Based</h3>
+                    <p id="feature3Desc">Automatically activates in your favorite applications</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔋</span>
-                    <h3 id="feature4Title">Pil Dostu</h3>
-                    <p id="feature4Desc">Hafif ve optimize edilmiş yapısıyla pilinizi tüketmez</p>
+                    <h3 id="feature4Title">Battery Friendly</h3>
+                    <p id="feature4Desc">Lightweight and optimized structure that doesn't drain your battery</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">👁️</span>
-                    <h3 id="feature5Title">Göz Konforu</h3>
-                    <p id="feature5Desc">Mavi ışığı filtreler ve göz yorgunluğunu azaltır</p>
+                    <h3 id="feature5Title">Eye Comfort</h3>
+                    <p id="feature5Desc">Filters blue light and reduces eye strain</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔒</span>
-                    <h3 id="feature6Title">Gizlilik</h3>
-                    <p id="feature6Desc">Kişisel verilerinizi toplamaz, reklam amacıyla paylaşmaz</p>
+                    <h3 id="feature6Title">Privacy</h3>
+                    <p id="feature6Desc">Does not collect personal data or share for advertising purposes</p>
                 </div>
             </div>
         </div>
@@ -436,147 +404,16 @@
 
     <section class="download">
         <div class="container">
-            <h2 id="downloadTitle">Şimdi İndirin</h2>
-            <p id="downloadDesc">Olhos ile gözlerinizi koruyun ve daha konforlu bir dijital deneyim yaşayın</p>
+            <h2 id="downloadTitle">Download Now</h2>
+            <p id="downloadDesc">Protect your eyes with Olhos and enjoy a more comfortable digital experience</p>
             <a href="https://play.google.com/store/apps/details?id=com.dxdigi.olhos" class="download-button" id="downloadButton">Google Play Store</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 DxDigi - Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2025 DxDigi - All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const translations = {
-            tr: {
-                navHome: "Ana Sayfa",
-                navApps: "Uygulamalar", 
-                navAbout: "Hakkımızda",
-                navContact: "İletişim",
-                heroTitle: "Olhos",
-                heroSubtitle: "Gözlerinizi koruyun, dijital yorgunluğu azaltın",
-                ctaButton: "Google Play'den İndirin",
-                featuresTitle: "Özellikler",
-                feature1Title: "Otomatik Ayarlama",
-                feature1Desc: "Gün doğumu ve gün batımı saatlerine göre ekran sıcaklığını otomatik olarak ayarlar",
-                feature2Title: "Manuel Kontrol", 
-                feature2Desc: "Renk sıcaklığını ve yoğunluğunu istediğiniz gibi manuel olarak ayarlayabilirsiniz",
-                feature3Title: "Uygulama Bazlı",
-                feature3Desc: "Favori uygulamalarınızda otomatik olarak etkinleşir",
-                feature4Title: "Pil Dostu",
-                feature4Desc: "Hafif ve optimize edilmiş yapısıyla pilinizi tüketmez",
-                feature5Title: "Göz Konforu",
-                feature5Desc: "Mavi ışığı filtreler ve göz yorgunluğunu azaltır",
-                feature6Title: "Gizlilik",
-                feature6Desc: "Kişisel verilerinizi toplamaz, reklam amacıyla paylaşmaz",
-                downloadTitle: "Şimdi İndirin",
-                downloadDesc: "Olhos ile gözlerinizi koruyun ve daha konforlu bir dijital deneyim yaşayın",
-                downloadButton: "Google Play Store"
-            },
-            en: {
-                navHome: "Home",
-                navApps: "Apps",
-                navAbout: "About Us", 
-                navContact: "Contact",
-                heroTitle: "Olhos",
-                heroSubtitle: "Protect your eyes, reduce digital fatigue",
-                ctaButton: "Download from Google Play",
-                featuresTitle: "Features",
-                feature1Title: "Auto Adjustment",
-                feature1Desc: "Automatically adjusts screen temperature based on sunrise and sunset times",
-                feature2Title: "Manual Control",
-                feature2Desc: "Manually adjust color temperature and intensity as you prefer",
-                feature3Title: "App-Based",
-                feature3Desc: "Automatically activates in your favorite applications",
-                feature4Title: "Battery Friendly", 
-                feature4Desc: "Lightweight and optimized structure that doesn't drain your battery",
-                feature5Title: "Eye Comfort",
-                feature5Desc: "Filters blue light and reduces eye strain",
-                feature6Title: "Privacy",
-                feature6Desc: "Does not collect personal data or share for advertising purposes",
-                downloadTitle: "Download Now",
-                downloadDesc: "Protect your eyes with Olhos and enjoy a more comfortable digital experience",
-                downloadButton: "Google Play Store"
-            },
-            pt: {
-                navHome: "Início",
-                navApps: "Aplicativos",
-                navAbout: "Sobre Nós",
-                navContact: "Contato", 
-                heroTitle: "Olhos",
-                heroSubtitle: "Proteja seus olhos, reduza a fadiga digital",
-                ctaButton: "Baixar do Google Play",
-                featuresTitle: "Recursos",
-                feature1Title: "Ajuste Automático",
-                feature1Desc: "Ajusta automaticamente a temperatura da tela com base nos horários do nascer e pôr do sol",
-                feature2Title: "Controle Manual",
-                feature2Desc: "Ajuste manualmente a temperatura e intensidade das cores conforme sua preferência",
-                feature3Title: "Baseado em App",
-                feature3Desc: "Ativa automaticamente em seus aplicativos favoritos",
-                feature4Title: "Amigo da Bateria",
-                feature4Desc: "Estrutura leve e otimizada que não consome sua bateria",
-                feature5Title: "Conforto Visual",
-                feature5Desc: "Filtra a luz azul e reduz o cansaço visual",
-                feature6Title: "Privacidade", 
-                feature6Desc: "Não coleta dados pessoais nem compartilha para fins publicitários",
-                downloadTitle: "Baixe Agora",
-                downloadDesc: "Proteja seus olhos com o Olhos e tenha uma experiência digital mais confortável",
-                downloadButton: "Google Play Store"
-            }
-        };
-
-        let currentLang = 'tr';
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = t[key];
-                }
-            });
-
-            // Update language button
-            const flags = { tr: '🇹🇷 TR', en: '🇬🇧 EN', pt: '🇧🇷 PT' };
-            document.getElementById('languageBtn').textContent = `🌐 ${flags[lang].split(' ')[1]}`;
-            
-            // Update active language option
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-lang') === lang) {
-                    option.classList.add('active');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Language selector functionality
-            const languageBtn = document.getElementById('languageBtn');
-            const languageDropdown = document.getElementById('languageDropdown');
-            
-            languageBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-            
-            document.addEventListener('click', () => {
-                languageDropdown.classList.remove('show');
-            });
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const lang = option.getAttribute('data-lang');
-                    updateLanguage(lang);
-                    languageDropdown.classList.remove('show');
-                });
-            });
-            
-            // Initialize with Turkish
-            updateLanguage('tr');
-        });
-    </script>
+    
 </body>
 </html>
