@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinler - Konum Paylaşım Uygulaması | DxDigi</title>
+    <title>Pinler - Location Sharing App | DxDigi</title>
     
     <!-- Premium SEO Meta Tags -->
-    <meta name="description" content="Pinler - Gezdiğiniz yerleri ve mekanları harita üzerinde pinleyerek özel aksiyonlar (indirimler, keşifler, notlar) oluşturabileceğiniz ve çevrenizle paylaşabileceğiniz konum paylaşım mobil uygulaması." />
-    <meta name="keywords" content="pinler, konum pinleme, mekan paylaşımı, harita uygulaması, yer imi, gezi rehberi, dxdigi" />
+    <meta name="description" content="Pinler - A location sharing mobile app to pin places on the map, create special actions, and share with your community." />
+    <meta name="keywords" content="pinler, location pinning, place sharing, map app, bookmark, travel guide, dxdigi" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dxdigi.com/pinler.html" />
     
     <!-- Open Graph / Facebook / WhatsApp Share Previews -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://dxdigi.com/pinler.html" />
-    <meta property="og:title" content="Pinler - Konum Paylaşım Uygulaması | DxDigi" />
-    <meta property="og:description" content="Gezdiğiniz yerleri harita üzerinde pinleyerek özel aksiyonlar oluşturabileceğiniz konum paylaşım mobil uygulaması." />
+    <meta property="og:title" content="Pinler - Location Sharing App | DxDigi" />
+    <meta property="og:description" content="Pinler - A location sharing mobile app to pin places on the map, create special actions, and share with your community." />
     <meta property="og:image" content="https://dxdigi.com/assets/logo.png" />
     <meta property="og:site_name" content="DxDigi" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://dxdigi.com/pinler.html" />
-    <meta name="twitter:title" content="Pinler - Konum Paylaşım Uygulaması | DxDigi" />
-    <meta name="twitter:description" content="Gezdiğiniz yerleri harita üzerinde pinleyerek özel aksiyonlar oluşturabileceğiniz konum paylaşım mobil uygulaması." />
+    <meta name="twitter:title" content="Pinler - Location Sharing App | DxDigi" />
+    <meta name="twitter:description" content="Pinler - A location sharing mobile app to pin places on the map, create special actions, and share with your community." />
     <meta name="twitter:image" content="https://dxdigi.com/assets/logo.png" />
     
     <style>
@@ -118,43 +118,17 @@
         }
 
         /* Language Selector */
-        .language-selector {
-            position: relative;
-        }
+        
 
-        .language-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+        
 
         .language-btn:hover {
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
+        
 
-        .language-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        
 
         .language-option {
             padding: 12px 16px;
@@ -422,18 +396,12 @@
         <div class="nav-container">
             <a href="index.html" class="logo">DxDigi</a>
             <ul class="nav-links">
-                <li><a href="index.html" id="navHome">Ana Sayfa</a></li>
-                <li><a href="index.html#apps" id="navApps">Uygulamalar</a></li>
-                <li><a href="index.html#about" id="navAbout">Hakkımızda</a></li>
-                <li><a href="iletisim.html" id="navContact">İletişim</a></li>
+                <li><a href="index.html" id="navHome">Home</a></li>
+                <li><a href="index.html#apps" id="navApps">Apps</a></li>
+                <li><a href="index.html#about" id="navAbout">About Us</a></li>
+                <li><a href="contact.html" id="navContact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <button class="language-btn" id="languageBtn">🌐 TR</button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option active" data-lang="tr">🇹🇷 Türkçe</div>
-                    <div class="language-option" data-lang="en">🇬🇧 English</div>
-                    <div class="language-option" data-lang="pt">🇧🇷 Português</div>
-                </div>
+            
             </div>
         </div>
     </nav>
@@ -441,44 +409,44 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="heroTitle">Pinler</h1>
-            <p id="heroSubtitle">Gezdiğiniz yerleri pinleyin, anılarınızı haritada paylaşın</p>
-            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.pinler" class="cta-button" id="ctaButton">Google Play'den İndirin</a>
+            <p id="heroSubtitle">Pin the places you visit, share your memories on the map</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.pinler" class="cta-button" id="ctaButton">Download from Google Play</a>
         </div>
     </section>
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title" id="featuresTitle">Özellikler</h2>
+            <h2 class="section-title" id="featuresTitle">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">📍</span>
-                    <h3 id="feature1Title">Konum Pinleme</h3>
-                    <p id="feature1Desc">Harita üzerinden konum seçme veya mevcut konumu pinleme</p>
+                    <h3 id="feature1Title">Location Pinning</h3>
+                    <p id="feature1Desc">Select locations on the map or pin your current location</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎯</span>
-                    <h3 id="feature2Title">Aksiyon Tanımlama</h3>
-                    <p id="feature2Desc">Pinlenen konuma özel aksiyon türü, adı ve içeriği ekleme</p>
+                    <h3 id="feature2Title">Action Definition</h3>
+                    <p id="feature2Desc">Add specific action type, name and content to pinned locations</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📸</span>
-                    <h3 id="feature3Title">Multimedya Desteği</h3>
-                    <p id="feature3Desc">Fotoğraf ve video ekleyerek pinlere görsellik katma</p>
+                    <h3 id="feature3Title">Multimedia Support</h3>
+                    <p id="feature3Desc">Add photos and videos to make pins more visual</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🌐</span>
-                    <h3 id="feature4Title">Topluluk Paylaşımı</h3>
-                    <p id="feature4Desc">Pinlenmiş içerikler toplulukla veya özel olarak paylaşılabilir</p>
+                    <h3 id="feature4Title">Community Sharing</h3>
+                    <p id="feature4Desc">Pinned content can be shared with community or privately</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🔍</span>
-                    <h3 id="feature5Title">Filtreleme ve Arama</h3>
-                    <p id="feature5Desc">Aksiyon türüne, bölgeye veya tarihe göre filtreleme</p>
+                    <h3 id="feature5Title">Filtering and Search</h3>
+                    <p id="feature5Desc">Filter by action type, region or date</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🗺️</span>
-                    <h3 id="feature6Title">Keşif Arşivi</h3>
-                    <p id="feature6Desc">Kişisel keşif geçmişinizi oluşturun ve görüntüleyin</p>
+                    <h3 id="feature6Title">Discovery Archive</h3>
+                    <p id="feature6Desc">Create and view your personal discovery history</p>
                 </div>
             </div>
         </div>
@@ -486,36 +454,36 @@
 
     <section class="use-cases">
         <div class="container">
-            <h2 class="section-title" id="useCasesTitle">Kullanım Senaryoları</h2>
+            <h2 class="section-title" id="useCasesTitle">Use Case Scenarios</h2>
             
             <div class="use-case">
                 <div class="use-case-content">
-                    <h3 id="useCase1Title">Market Kampanyaları</h3>
-                    <p id="useCase1Desc">Mahallenizde bir manavın her cuma sebzelerde indirim yaptığını biliyor musunuz? Bu bilgiyi manavın konumunu pinleyerek, fotoğraf ekleyerek ve "Market" aksiyon türü ile "Cuma İndirimi" adıyla kaydedin. İçeriğe "Her Cuma sebze reyonunda %10 indirim" yazın ve toplulukla paylaşın.</p>
+                    <h3 id="useCase1Title">Market Campaigns</h3>
+                    <p id="useCase1Desc">Do you know that a grocery store in your neighborhood offers discounts on vegetables every Friday? Save this information by pinning the store's location, adding a photo, and recording it as "Market" action type with "Friday Discount" name. Write "10% discount in vegetable section every Friday" in the content and share with the community.</p>
                 </div>
                 <div class="use-case-visual">🛒</div>
             </div>
 
             <div class="use-case">
                 <div class="use-case-content">
-                    <h3 id="useCase2Title">Kafe Keşifleri</h3>
-                    <p id="useCase2Desc">Yeni keşfettiğiniz harika bir kafeyi pinleyin. Atmosfer fotoğrafları ekleyin, özel kahve çeşitleri hakkında not alın ve arkadaşlarınızla paylaşın. Diğer kullanıcılar da deneyimlerini ekleyebilir.</p>
+                    <h3 id="useCase2Title">Cafe Discoveries</h3>
+                    <p id="useCase2Desc">Pin that amazing new cafe you discovered. Add atmosphere photos, take notes about special coffee varieties and share with friends. Other users can also add their experiences.</p>
                 </div>
                 <div class="use-case-visual">☕</div>
             </div>
 
             <div class="use-case">
                 <div class="use-case-content">
-                    <h3 id="useCase3Title">Doğa Yürüyüşleri</h3>
-                    <p id="useCase3Desc">Doğada yürüyüş yaparken güzel manzaraları, ilginç bitkileri veya hayvanları gördüğünüz yerleri pinleyin. Fotoğraf ve videolarla belgelendirin, gelecekte aynı yerleri tekrar ziyaret edin.</p>
+                    <h3 id="useCase3Title">Nature Walks</h3>
+                    <p id="useCase3Desc">While hiking in nature, pin places where you see beautiful landscapes, interesting plants or animals. Document with photos and videos, revisit the same places in the future.</p>
                 </div>
                 <div class="use-case-visual">🏞️</div>
             </div>
 
             <div class="use-case">
                 <div class="use-case-content">
-                    <h3 id="useCase4Title">Etkinlik Paylaşımları</h3>
-                    <p id="useCase4Desc">Katıldığınız konserler, festivaller, sergiler gibi etkinlikleri pinleyin. Deneyimlerinizi paylaşın, gelecek etkinlikler için hatırlatıcılar oluşturun.</p>
+                    <h3 id="useCase4Title">Event Sharing</h3>
+                    <p id="useCase4Desc">Pin events you attend like concerts, festivals, exhibitions. Share your experiences, create reminders for future events.</p>
                 </div>
                 <div class="use-case-visual">🎭</div>
             </div>
@@ -524,174 +492,16 @@
 
     <section class="download">
         <div class="container">
-            <h2 id="downloadTitle">Şimdi İndirin</h2>
-            <p id="downloadDesc">Pinler ile her adımınızı dijital bir keşfe dönüştürün</p>
+            <h2 id="downloadTitle">Download Now</h2>
+            <p id="downloadDesc">Transform every step into a digital discovery with Pinler</p>
             <a href="https://play.google.com/store/apps/details?id=com.dxdigi.pinler" class="download-button" id="downloadButton">Google Play Store</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 DxDigi - Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2025 DxDigi - All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const translations = {
-            tr: {
-                navHome: "Ana Sayfa",
-                navApps: "Uygulamalar", 
-                navAbout: "Hakkımızda",
-                navContact: "İletişim",
-                heroTitle: "Pinler",
-                heroSubtitle: "Gezdiğiniz yerleri pinleyin, anılarınızı haritada paylaşın",
-                ctaButton: "Google Play'den İndirin",
-                featuresTitle: "Özellikler",
-                feature1Title: "Konum Pinleme",
-                feature1Desc: "Harita üzerinden konum seçme veya mevcut konumu pinleme",
-                feature2Title: "Aksiyon Tanımlama", 
-                feature2Desc: "Pinlenen konuma özel aksiyon türü, adı ve içeriği ekleme",
-                feature3Title: "Multimedya Desteği",
-                feature3Desc: "Fotoğraf ve video ekleyerek pinlere görsellik katma",
-                feature4Title: "Topluluk Paylaşımı",
-                feature4Desc: "Pinlenmiş içerikler toplulukla veya özel olarak paylaşılabilir",
-                feature5Title: "Filtreleme ve Arama",
-                feature5Desc: "Aksiyon türüne, bölgeye veya tarihe göre filtreleme",
-                feature6Title: "Keşif Arşivi",
-                feature6Desc: "Kişisel keşif geçmişinizi oluşturun ve görüntüleyin",
-                useCasesTitle: "Kullanım Senaryoları",
-                useCase1Title: "Market Kampanyaları",
-                useCase1Desc: "Mahallenizde bir manavın her cuma sebzelerde indirim yaptığını biliyor musunuz? Bu bilgiyi manavın konumunu pinleyerek, fotoğraf ekleyerek ve \"Market\" aksiyon türü ile \"Cuma İndirimi\" adıyla kaydedin. İçeriğe \"Her Cuma sebze reyonunda %10 indirim\" yazın ve toplulukla paylaşın.",
-                useCase2Title: "Kafe Keşifleri",
-                useCase2Desc: "Yeni keşfettiğiniz harika bir kafeyi pinleyin. Atmosfer fotoğrafları ekleyin, özel kahve çeşitleri hakkında not alın ve arkadaşlarınızla paylaşın. Diğer kullanıcılar da deneyimlerini ekleyebilir.",
-                useCase3Title: "Doğa Yürüyüşleri",
-                useCase3Desc: "Doğada yürüyüş yaparken güzel manzaraları, ilginç bitkileri veya hayvanları gördüğünüz yerleri pinleyin. Fotoğraf ve videolarla belgelendirin, gelecekte aynı yerleri tekrar ziyaret edin.",
-                useCase4Title: "Etkinlik Paylaşımları",
-                useCase4Desc: "Katıldığınız konserler, festivaller, sergiler gibi etkinlikleri pinleyin. Deneyimlerinizi paylaşın, gelecek etkinlikler için hatırlatıcılar oluşturun.",
-                downloadTitle: "Şimdi İndirin",
-                downloadDesc: "Pinler ile her adımınızı dijital bir keşfe dönüştürün",
-                downloadButton: "Google Play Store"
-            },
-            en: {
-                navHome: "Home",
-                navApps: "Apps",
-                navAbout: "About Us", 
-                navContact: "Contact",
-                heroTitle: "Pinler",
-                heroSubtitle: "Pin the places you visit, share your memories on the map",
-                ctaButton: "Download from Google Play",
-                featuresTitle: "Features",
-                feature1Title: "Location Pinning",
-                feature1Desc: "Select locations on the map or pin your current location",
-                feature2Title: "Action Definition",
-                feature2Desc: "Add specific action type, name and content to pinned locations",
-                feature3Title: "Multimedia Support",
-                feature3Desc: "Add photos and videos to make pins more visual",
-                feature4Title: "Community Sharing", 
-                feature4Desc: "Pinned content can be shared with community or privately",
-                feature5Title: "Filtering and Search",
-                feature5Desc: "Filter by action type, region or date",
-                feature6Title: "Discovery Archive",
-                feature6Desc: "Create and view your personal discovery history",
-                useCasesTitle: "Use Case Scenarios",
-                useCase1Title: "Market Campaigns",
-                useCase1Desc: "Do you know that a grocery store in your neighborhood offers discounts on vegetables every Friday? Save this information by pinning the store's location, adding a photo, and recording it as \"Market\" action type with \"Friday Discount\" name. Write \"10% discount in vegetable section every Friday\" in the content and share with the community.",
-                useCase2Title: "Cafe Discoveries",
-                useCase2Desc: "Pin that amazing new cafe you discovered. Add atmosphere photos, take notes about special coffee varieties and share with friends. Other users can also add their experiences.",
-                useCase3Title: "Nature Walks",
-                useCase3Desc: "While hiking in nature, pin places where you see beautiful landscapes, interesting plants or animals. Document with photos and videos, revisit the same places in the future.",
-                useCase4Title: "Event Sharing",
-                useCase4Desc: "Pin events you attend like concerts, festivals, exhibitions. Share your experiences, create reminders for future events.",
-                downloadTitle: "Download Now",
-                downloadDesc: "Transform every step into a digital discovery with Pinler",
-                downloadButton: "Google Play Store"
-            },
-            pt: {
-                navHome: "Início",
-                navApps: "Aplicativos",
-                navAbout: "Sobre Nós",
-                navContact: "Contato", 
-                heroTitle: "Pinler",
-                heroSubtitle: "Marque os locais que você visita, compartilhe suas memórias no mapa",
-                ctaButton: "Baixar do Google Play",
-                featuresTitle: "Recursos",
-                feature1Title: "Marcação de Localização",
-                feature1Desc: "Selecione localizações no mapa ou marque sua localização atual",
-                feature2Title: "Definição de Ação",
-                feature2Desc: "Adicione tipo de ação, nome e conteúdo específicos aos locais marcados",
-                feature3Title: "Suporte Multimídia",
-                feature3Desc: "Adicione fotos e vídeos para tornar os pins mais visuais",
-                feature4Title: "Compartilhamento Comunitário",
-                feature4Desc: "Conteúdo marcado pode ser compartilhado com a comunidade ou privadamente",
-                feature5Title: "Filtragem e Busca", 
-                feature5Desc: "Filtre por tipo de ação, região ou data",
-                feature6Title: "Arquivo de Descobertas",
-                feature6Desc: "Crie e visualize seu histórico pessoal de descobertas",
-                useCasesTitle: "Cenários de Uso",
-                useCase1Title: "Campanhas de Mercado",
-                useCase1Desc: "Você sabia que uma mercearia no seu bairro oferece descontos em vegetais toda sexta-feira? Salve essa informação marcando a localização da loja, adicionando uma foto e registrando como tipo de ação \"Mercado\" com nome \"Desconto de Sexta\". Escreva \"10% de desconto na seção de vegetais toda sexta-feira\" no conteúdo e compartilhe com a comunidade.",
-                useCase2Title: "Descobertas de Cafés",
-                useCase2Desc: "Marque aquele café incrível que você descobriu. Adicione fotos do ambiente, faça anotações sobre variedades especiais de café e compartilhe com amigos. Outros usuários também podem adicionar suas experiências.",
-                useCase3Title: "Caminhadas na Natureza",
-                useCase3Desc: "Ao caminhar na natureza, marque locais onde você vê paisagens bonitas, plantas interessantes ou animais. Documente com fotos e vídeos, revisite os mesmos locais no futuro.",
-                useCase4Title: "Compartilhamento de Eventos",
-                useCase4Desc: "Marque eventos que você participa como concertos, festivais, exposições. Compartilhe suas experiências, crie lembretes para eventos futuros.",
-                downloadTitle: "Baixe Agora",
-                downloadDesc: "Transforme cada passo em uma descoberta digital com o Pinler",
-                downloadButton: "Google Play Store"
-            }
-        };
-
-        let currentLang = 'tr';
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = t[key];
-                }
-            });
-
-            // Update language button
-            const flags = { tr: '🇹🇷 TR', en: '🇬🇧 EN', pt: '🇧🇷 PT' };
-            document.getElementById('languageBtn').textContent = `🌐 ${flags[lang].split(' ')[1]}`;
-            
-            // Update active language option
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-lang') === lang) {
-                    option.classList.add('active');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Language selector functionality
-            const languageBtn = document.getElementById('languageBtn');
-            const languageDropdown = document.getElementById('languageDropdown');
-            
-            languageBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-            
-            document.addEventListener('click', () => {
-                languageDropdown.classList.remove('show');
-            });
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const lang = option.getAttribute('data-lang');
-                    updateLanguage(lang);
-                    languageDropdown.classList.remove('show');
-                });
-            });
-            
-            // Initialize with Turkish
-            updateLanguage('tr');
-        });
-    </script>
+    
 </body>
 </html>
