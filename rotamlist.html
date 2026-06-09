@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     
     <!-- Premium SEO Meta Tags -->
     <meta name="description" content="Rotamlist - Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak GPS ile haritada oluşturabileceğiniz, rota üzerindeki anılarınızı fotoğraf ve videolarla pinleyip paylaşabileceğiniz rota takip mobil uygulaması." />
-    <meta name="keywords" content="rotamlist, rota takip, koşu rotası, yürüyüş rotası, bisiklet takip, gps takip, spor uygulaması, dxdigi" />
+    <meta name="keywords" content="rotamlist, route tracking, map, gps tracking, run tracker, cycle tracker, dxdigi" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://dxdigi.com/rotamlist.html" />
     
@@ -18,7 +18,7 @@
     <meta property="og:description" content="Koşu, yürüyüş ve bisiklet rotalarınızı anlık olarak haritada oluşturup fotoğraf ve videolarla pinleyebileceğiniz mobil uygulama." />
     <meta property="og:image" content="https://dxdigi.com/assets/logo.png" />
     <meta property="og:site_name" content="DxDigi" />
-    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -117,43 +117,17 @@
         }
 
         /* Language Selector */
-        .language-selector {
-            position: relative;
-        }
+        
 
-        .language-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+        
 
         .language-btn:hover {
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .language-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 150px;
-        }
+        
 
-        .language-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        
 
         .language-option {
             padding: 12px 16px;
@@ -417,18 +391,12 @@
         <div class="nav-container">
             <a href="index.html" class="logo">DxDigi</a>
             <ul class="nav-links">
-                <li><a href="index.html" id="navHome">Ana Sayfa</a></li>
-                <li><a href="index.html#apps" id="navApps">Uygulamalar</a></li>
-                <li><a href="index.html#about" id="navAbout">Hakkımızda</a></li>
-                <li><a href="iletisim.html" id="navContact">İletişim</a></li>
+                <li><a href="index.html" id="navHome">Home</a></li>
+                <li><a href="index.html#apps" id="navApps">Apps</a></li>
+                <li><a href="index.html#about" id="navAbout">About Us</a></li>
+                <li><a href="contact.html" id="navContact">Contact</a></li>
             </ul>
-            <div class="language-selector">
-                <button class="language-btn" id="languageBtn">🌐 TR</button>
-                <div class="language-dropdown" id="languageDropdown">
-                    <div class="language-option active" data-lang="tr">🇹🇷 Türkçe</div>
-                    <div class="language-option" data-lang="en">🇬🇧 English</div>
-                    <div class="language-option" data-lang="pt">🇧🇷 Português</div>
-                </div>
+            
             </div>
         </div>
     </nav>
@@ -436,44 +404,44 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="heroTitle">Rotamlist</h1>
-            <p id="heroSubtitle">Koşu, yürüyüş ve bisiklet rotalarınızı haritada oluşturun, paylaşın</p>
-            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.rotamlistapp" class="cta-button" id="ctaButton">Google Play'den İndirin</a>
+            <p id="heroSubtitle">Create and share your running, walking and cycling routes on the map</p>
+            <a href="https://play.google.com/store/apps/details?id=com.dxdigi.rotamlistapp" class="cta-button" id="ctaButton">Download from Google Play</a>
         </div>
     </section>
 
     <section class="features">
         <div class="container">
-            <h2 class="section-title" id="featuresTitle">Özellikler</h2>
+            <h2 class="section-title" id="featuresTitle">Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="feature-icon">🗺️</span>
-                    <h3 id="feature1Title">Anlık Rota Oluşturma</h3>
-                    <p id="feature1Desc">Koşu, yürüyüş ve bisiklet rotalarınızı gerçek zamanlı olarak haritada oluşturun</p>
+                    <h3 id="feature1Title">Real-time Route Creation</h3>
+                    <p id="feature1Desc">Create your running, walking and cycling routes on the map in real-time</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📍</span>
-                    <h3 id="feature2Title">GPS Takip</h3>
-                    <p id="feature2Desc">Anlık konum bilginizle rotanızı hassas bir şekilde kaydedin</p>
+                    <h3 id="feature2Title">GPS Tracking</h3>
+                    <p id="feature2Desc">Record your route accurately with real-time location information</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📸</span>
-                    <h3 id="feature3Title">Fotoğraf & Video</h3>
-                    <p id="feature3Desc">Rota boyunca çektiğiniz fotoğraf ve videoları pinleyerek kaydedin</p>
+                    <h3 id="feature3Title">Photos & Videos</h3>
+                    <p id="feature3Desc">Pin photos and videos you take along the route</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🚴‍♂️</span>
-                    <h3 id="feature4Title">Çoklu Aktivite</h3>
-                    <p id="feature4Desc">Koşu, yürüyüş, bisiklet ve diğer aktivitelerinizi takip edin</p>
+                    <h3 id="feature4Title">Multiple Activities</h3>
+                    <p id="feature4Desc">Track your running, walking, cycling and other activities</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📊</span>
-                    <h3 id="feature5Title">İstatistikler</h3>
-                    <p id="feature5Desc">Mesafe, süre, hız gibi detaylı aktivite istatistiklerinizi görün</p>
+                    <h3 id="feature5Title">Statistics</h3>
+                    <p id="feature5Desc">View detailed activity statistics like distance, duration, speed</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🌐</span>
-                    <h3 id="feature6Title">Sosyal Paylaşım</h3>
-                    <p id="feature6Desc">Rotalarınızı ve deneyimlerinizi arkadaşlarınızla paylaşın</p>
+                    <h3 id="feature6Title">Social Sharing</h3>
+                    <p id="feature6Desc">Share your routes and experiences with friends</p>
                 </div>
             </div>
         </div>
@@ -481,27 +449,27 @@
 
     <section class="how-it-works">
         <div class="container">
-            <h2 class="section-title" id="howItWorksTitle">Nasıl Çalışır?</h2>
+            <h2 class="section-title" id="howItWorksTitle">How It Works?</h2>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3 id="step1Title">Aktivite Seçin</h3>
-                    <p id="step1Desc">Koşu, yürüyüş veya bisiklet aktivitesini seçin</p>
+                    <h3 id="step1Title">Choose Activity</h3>
+                    <p id="step1Desc">Select running, walking or cycling activity</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 id="step2Title">Rotayı Başlatın</h3>
-                    <p id="step2Desc">GPS takibini başlatarak rotanızı kaydetmeye başlayın</p>
+                    <h3 id="step2Title">Start Route</h3>
+                    <p id="step2Desc">Start GPS tracking to begin recording your route</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 id="step3Title">İçerik Ekleyin</h3>
-                    <p id="step3Desc">Rota boyunca fotoğraf ve video çekerek pinleyin</p>
+                    <h3 id="step3Title">Add Content</h3>
+                    <p id="step3Desc">Take photos and videos along the route and pin them</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3 id="step4Title">Paylaşın</h3>
-                    <p id="step4Desc">Rotanızı ve deneyimlerinizi çevrenizle paylaşın</p>
+                    <h3 id="step4Title">Share</h3>
+                    <p id="step4Desc">Share your route and experiences with others</p>
                 </div>
             </div>
         </div>
@@ -509,174 +477,16 @@
 
     <section class="download">
         <div class="container">
-            <h2 id="downloadTitle">Şimdi İndirin</h2>
-            <p id="downloadDesc">Rotamlist ile aktivitelerinizi takip edin, anılarınızı kaydedin ve paylaşın</p>
+            <h2 id="downloadTitle">Download Now</h2>
+            <p id="downloadDesc">Track your activities, save memories and share with Rotamlist</p>
             <a href="https://play.google.com/store/apps/details?id=com.dxdigi.rotamlistapp" class="download-button" id="downloadButton">Google Play Store</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 DxDigi - Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2025 DxDigi - All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const translations = {
-            tr: {
-                navHome: "Ana Sayfa",
-                navApps: "Uygulamalar", 
-                navAbout: "Hakkımızda",
-                navContact: "İletişim",
-                heroTitle: "Rotamlist",
-                heroSubtitle: "Koşu, yürüyüş ve bisiklet rotalarınızı haritada oluşturun, paylaşın",
-                ctaButton: "Google Play'den İndirin",
-                featuresTitle: "Özellikler",
-                feature1Title: "Anlık Rota Oluşturma",
-                feature1Desc: "Koşu, yürüyüş ve bisiklet rotalarınızı gerçek zamanlı olarak haritada oluşturun",
-                feature2Title: "GPS Takip", 
-                feature2Desc: "Anlık konum bilginizle rotanızı hassas bir şekilde kaydedin",
-                feature3Title: "Fotoğraf & Video",
-                feature3Desc: "Rota boyunca çektiğiniz fotoğraf ve videoları pinleyerek kaydedin",
-                feature4Title: "Çoklu Aktivite",
-                feature4Desc: "Koşu, yürüyüş, bisiklet ve diğer aktivitelerinizi takip edin",
-                feature5Title: "İstatistikler",
-                feature5Desc: "Mesafe, süre, hız gibi detaylı aktivite istatistiklerinizi görün",
-                feature6Title: "Sosyal Paylaşım",
-                feature6Desc: "Rotalarınızı ve deneyimlerinizi arkadaşlarınızla paylaşın",
-                howItWorksTitle: "Nasıl Çalışır?",
-                step1Title: "Aktivite Seçin",
-                step1Desc: "Koşu, yürüyüş veya bisiklet aktivitesini seçin",
-                step2Title: "Rotayı Başlatın",
-                step2Desc: "GPS takibini başlatarak rotanızı kaydetmeye başlayın",
-                step3Title: "İçerik Ekleyin",
-                step3Desc: "Rota boyunca fotoğraf ve video çekerek pinleyin",
-                step4Title: "Paylaşın",
-                step4Desc: "Rotanızı ve deneyimlerinizi çevrenizle paylaşın",
-                downloadTitle: "Şimdi İndirin",
-                downloadDesc: "Rotamlist ile aktivitelerinizi takip edin, anılarınızı kaydedin ve paylaşın",
-                downloadButton: "Google Play Store"
-            },
-            en: {
-                navHome: "Home",
-                navApps: "Apps",
-                navAbout: "About Us", 
-                navContact: "Contact",
-                heroTitle: "Rotamlist",
-                heroSubtitle: "Create and share your running, walking and cycling routes on the map",
-                ctaButton: "Download from Google Play",
-                featuresTitle: "Features",
-                feature1Title: "Real-time Route Creation",
-                feature1Desc: "Create your running, walking and cycling routes on the map in real-time",
-                feature2Title: "GPS Tracking",
-                feature2Desc: "Record your route accurately with real-time location information",
-                feature3Title: "Photos & Videos",
-                feature3Desc: "Pin photos and videos you take along the route",
-                feature4Title: "Multiple Activities", 
-                feature4Desc: "Track your running, walking, cycling and other activities",
-                feature5Title: "Statistics",
-                feature5Desc: "View detailed activity statistics like distance, duration, speed",
-                feature6Title: "Social Sharing",
-                feature6Desc: "Share your routes and experiences with friends",
-                howItWorksTitle: "How It Works?",
-                step1Title: "Choose Activity",
-                step1Desc: "Select running, walking or cycling activity",
-                step2Title: "Start Route",
-                step2Desc: "Start GPS tracking to begin recording your route",
-                step3Title: "Add Content",
-                step3Desc: "Take photos and videos along the route and pin them",
-                step4Title: "Share",
-                step4Desc: "Share your route and experiences with others",
-                downloadTitle: "Download Now",
-                downloadDesc: "Track your activities, save memories and share with Rotamlist",
-                downloadButton: "Google Play Store"
-            },
-            pt: {
-                navHome: "Início",
-                navApps: "Aplicativos",
-                navAbout: "Sobre Nós",
-                navContact: "Contato", 
-                heroTitle: "Rotamlist",
-                heroSubtitle: "Crie e compartilhe suas rotas de corrida, caminhada e ciclismo no mapa",
-                ctaButton: "Baixar do Google Play",
-                featuresTitle: "Recursos",
-                feature1Title: "Criação de Rota em Tempo Real",
-                feature1Desc: "Crie suas rotas de corrida, caminhada e ciclismo no mapa em tempo real",
-                feature2Title: "Rastreamento GPS",
-                feature2Desc: "Registre sua rota com precisão usando informações de localização em tempo real",
-                feature3Title: "Fotos e Vídeos",
-                feature3Desc: "Marque fotos e vídeos que você tira ao longo da rota",
-                feature4Title: "Múltiplas Atividades",
-                feature4Desc: "Acompanhe suas atividades de corrida, caminhada, ciclismo e outras",
-                feature5Title: "Estatísticas", 
-                feature5Desc: "Veja estatísticas detalhadas da atividade como distância, duração, velocidade",
-                feature6Title: "Compartilhamento Social",
-                feature6Desc: "Compartilhe suas rotas e experiências com amigos",
-                howItWorksTitle: "Como Funciona?",
-                step1Title: "Escolha a Atividade",
-                step1Desc: "Selecione atividade de corrida, caminhada ou ciclismo",
-                step2Title: "Inicie a Rota",
-                step2Desc: "Inicie o rastreamento GPS para começar a gravar sua rota",
-                step3Title: "Adicione Conteúdo",
-                step3Desc: "Tire fotos e vídeos ao longo da rota e marque-os",
-                step4Title: "Compartilhe",
-                step4Desc: "Compartilhe sua rota e experiências com outros",
-                downloadTitle: "Baixe Agora",
-                downloadDesc: "Acompanhe suas atividades, salve memórias e compartilhe com o Rotamlist",
-                downloadButton: "Google Play Store"
-            }
-        };
-
-        let currentLang = 'tr';
-
-        function updateLanguage(lang) {
-            currentLang = lang;
-            const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.textContent = t[key];
-                }
-            });
-
-            // Update language button
-            const flags = { tr: '🇹🇷 TR', en: '🇬🇧 EN', pt: '🇧🇷 PT' };
-            document.getElementById('languageBtn').textContent = `🌐 ${flags[lang].split(' ')[1]}`;
-            
-            // Update active language option
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('active');
-                if (option.getAttribute('data-lang') === lang) {
-                    option.classList.add('active');
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Language selector functionality
-            const languageBtn = document.getElementById('languageBtn');
-            const languageDropdown = document.getElementById('languageDropdown');
-            
-            languageBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-            
-            document.addEventListener('click', () => {
-                languageDropdown.classList.remove('show');
-            });
-            
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const lang = option.getAttribute('data-lang');
-                    updateLanguage(lang);
-                    languageDropdown.classList.remove('show');
-                });
-            });
-            
-            // Initialize with Turkish
-            updateLanguage('tr');
-        });
-    </script>
+    
 </body>
 </html>
