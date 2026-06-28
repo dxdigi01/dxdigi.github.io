@@ -85,6 +85,28 @@
                 <img src="assets/feature_saas.png" alt="SaaS License Sync" class="feature-image">
             </div>
         </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing" style="padding: 60px 20px; text-align: center;">
+        <div class="section-header">
+            <h2>Pricing</h2>
+            <p>Simple, transparent yearly subscription. Cancel anytime.</p>
+        </div>
+        <div class="pricing-card glass-panel" style="max-width: 400px; margin: 0 auto; padding: 40px; border-radius: 16px; border: 1px solid rgba(0, 188, 212, 0.3);">
+            <h3>Yearly Plan</h3>
+            <div class="price" style="font-size: 3em; font-weight: 700; color: #00bcd4; margin: 20px 0;">$39.99<span style="font-size: 0.4em; color: #aaa;">/year</span></div>
+            <ul style="list-style: none; padding: 0; margin-bottom: 30px; text-align: left; display: inline-block;">
+                <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #00bcd4; margin-right: 10px;"></i>Automated Shutdowns</li>
+                <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #00bcd4; margin-right: 10px;"></i>Mandatory Lock Screen</li>
+                <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #00bcd4; margin-right: 10px;"></i>Cloud License Sync</li>
+                <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: #00bcd4; margin-right: 10px;"></i>1 Device Included</li>
+            </ul>
+            <br>
+            <a href="#" id="buy-btn" class="btn btn-primary" style="display: block; width: 100%; box-sizing: border-box; text-align: center;">Buy Now</a>
+            <p style="font-size: 0.8em; color: #888; margin-top: 15px;">A valid device_id is required from the desktop app.</p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -97,5 +119,46 @@
         <p>&copy; 2026 DXDigi - ShutdownGuard. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Initialize Paddle
+            // IMPORTANT: Replace 'YOUR_CLIENT_SIDE_TOKEN_HERE' with your actual token from Developer Tools > Authentication
+            Paddle.Initialize({
+                token: 'YOUR_CLIENT_SIDE_TOKEN_HERE',
+                // environment: 'sandbox' // Uncomment this if you are using a Paddle Sandbox account
+            });
+
+            // 2. Get device_id from the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const deviceId = urlParams.get('device_id');
+            
+            // 3. Setup the Buy button
+            const buyBtn = document.getElementById('buy-btn');
+            if (buyBtn) {
+                buyBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (!deviceId) {
+                        alert("Device ID is missing! Please click 'Buy Now' from inside the ShutdownGuard desktop app so it can pass your specific device ID.");
+                        return;
+                    }
+
+                    // Open Paddle Checkout
+                    Paddle.Checkout.open({
+                        items: [
+                            {
+                                priceId: 'pri_01kw7thvxrxk9hx6hfg69kf1xs', // Product: ShutdownGuard Yearly Subscription
+                                quantity: 1
+                            }
+                        ],
+                        customData: {
+                            device_id: deviceId // We send the device_id silently to Supabase webhook!
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
