@@ -51,7 +51,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  <url>
+    <loc>https://dxdigi.com/shutdownguard/</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   
   <!-- Gizlilik Politikaları -->
