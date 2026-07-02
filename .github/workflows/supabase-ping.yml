@@ -1,0 +1,17 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Pazartesi ve Perşembe gece yarısı çalıştır
+    - cron: '0 0 * * 1,4'
+  workflow_dispatch: # İstediğimiz zaman manuel çalıştırma butonu ekler
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase License API
+        run: |
+          curl -X POST "https://joxqoyfcwipvjazeenod.supabase.co/functions/v1/check-license" \
+          -H "Content-Type: application/json" \
+          -d '{"device_id": "cron-job-ping-bot"}'
