@@ -237,6 +237,16 @@
                     });
                 });
             }
+            // 4. Auto-scroll to section if 'scroll' query param is present
+            const scrollTarget = urlParams.get('scroll');
+            if (scrollTarget) {
+                const targetEl = document.getElementById(scrollTarget);
+                if (targetEl) {
+                    setTimeout(function() {
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 500);
+                }
+            }
         });
     </script>
 </body>
